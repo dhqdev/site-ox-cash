@@ -1,11 +1,11 @@
 const EventInfo = () => {
   const eventDetails = [
-    { label: "De 26 a 29 de Setembro", icon: "📅" },
-    { label: "Sempre às 20:00h", icon: "⏰" },
-    { label: "AO VIVO", icon: "🔴" },
-    { label: "Transmissão online", icon: "💻" },
+    { label: "Trabalham de Segunda a Sexta", icon: "📅" },
+    { label: "Horário: 9h às 18h", icon: "⏰" },
+    { label: "Mais de 500 clientes", icon: "👥" },
+    { label: "Sempre disponíveis", icon: "📞" },
     { label: "100% GRATUITO", icon: "🆓" },
-    { label: "Inscrições limitadas", icon: "⚠️" }
+    { label: "Atendimento personalizado", icon: "⭐" }
   ];
 
   return (
