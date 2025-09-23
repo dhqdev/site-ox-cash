@@ -2,23 +2,23 @@ const WhatYouWillLearn = () => {
   const learningPoints = [
     {
       number: "1",
-      title: "O Investimento Certo",
-      description: "Os pilares da alavancagem patrimonial e como começar com total segurança."
+      title: "Crédito Imobiliário Inteligente",
+      description: "Descubra como investir em crédito imobiliário com segurança e obter rentabilidade garantida através do nosso BCI."
     },
     {
       number: "2", 
-      title: "A Estratégia Secreta",
-      description: "As melhores táticas de multiplicação com consórcios que o mercado não te conta."
+      title: "Estratégias de Consórcio",
+      description: "Aprenda as melhores táticas para multiplicar seu patrimônio através de consórcios contemplados e não contemplados."
     },
     {
       number: "3",
-      title: "A Prática e a Escala", 
-      description: "Como colocar o plano em prática e escalar seus resultados de forma consistente."
+      title: "Maximização de Lucros", 
+      description: "Como estruturar seus investimentos para escalar resultados de forma consistente e construir renda passiva."
     },
     {
       number: "4",
-      title: "O Caminho Completo",
-      description: "O passo a passo para maximizar seus lucros e construir sua liberdade financeira."
+      title: "Consultoria Especializada",
+      description: "Tenha acesso ao conhecimento de 27 anos no mercado e transforme sua realidade financeira com segurança."
     }
   ];
 
@@ -26,10 +26,14 @@ const WhatYouWillLearn = () => {
     <section className="py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          O que você vai descobrir na
+          Como a <span className="text-gradient-gold">OX CASH</span> pode
           <br />
-          <span className="text-gradient-gold">Série Lucrando com Consórcios</span>
+          <span className="text-gradient-gold">transformar seus investimentos</span>
         </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Com nossa experiência de 27 anos, oferecemos as melhores oportunidades 
+          do mercado de crédito imobiliário e consórcios
+        </p>
       </div>
       
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">

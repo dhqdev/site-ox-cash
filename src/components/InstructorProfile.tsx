@@ -2,53 +2,63 @@ import oscarPhoto from "@/assets/oscar-photo.jpg";
 
 const InstructorProfile = () => {
   const credentials = [
-    "💰 Mais de 4 anos no mercado",
-    "👥 +500 clientes satisfeitos", 
-    "🎯 Sócio fundador da BCI",
-    "📈 Especialista em consórcios e investimentos"
+    "Sócio fundador da OX CASH", 
+    "27+ anos de experiência no mercado financeiro",
+    "Especialista em crédito imobiliário",
+    "Mentor de centenas de investidores",
+    "Responsável por mais de R$ 150M em vendas"
   ];
 
   return (
     <section className="py-16">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Conheça o <span className="text-gradient-gold">Oscar</span>
+          Conheça <span className="text-gradient-gold">Oscar</span>
         </h2>
-        <p className="text-xl text-muted-foreground">Sócio Fundador da BCI</p>
+        <p className="text-lg text-muted-foreground">
+          Sócio fundador e especialista em investimentos
+        </p>
       </div>
       
-      <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
-        <div className="lg:w-1/3">
-          <div className="relative">
-            <img 
-              src={oscarPhoto} 
-              alt="Oscar - Sócio Fundador BCI" 
-              className="rounded-2xl shadow-2xl w-full max-w-sm mx-auto"
-            />
-            <div className="absolute -bottom-4 -right-4 bg-gradient-gold text-black p-4 rounded-xl shadow-lg">
-              <div className="text-2xl font-bold">4+</div>
-              <div className="text-sm">Anos de mercado</div>
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-gradient-card border border-border rounded-2xl p-8 md:p-12">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+              <img 
+                src={oscarPhoto} 
+                alt="Oscar - Sócio fundador da OX CASH" 
+                className="w-64 h-64 rounded-2xl object-cover mx-auto mb-6 border-4 border-gold/20"
+              />
             </div>
-          </div>
-        </div>
-        
-        <div className="lg:w-2/3">
-          <div className="space-y-6">
-            {credentials.map((credential, index) => (
-              <div key={index} className="bg-gradient-card border border-border rounded-xl p-4 flex items-center gap-4">
-                <div className="text-2xl">{credential.split(' ')[0]}</div>
-                <div className="text-lg font-medium">{credential.split(' ').slice(1).join(' ')}</div>
+            
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gradient-gold">
+                Oscar - Sócio Fundador
+              </h3>
+              
+              <div className="space-y-3 mb-6">
+                {credentials.map((credential, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
+                    <span className="text-sm text-muted-foreground">{credential}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          
-          <div className="mt-8 bg-gradient-card border border-border rounded-2xl p-6">
-            <h3 className="text-xl font-bold mb-4">Transformando vidas através dos investimentos</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Oscar, sócio fundador da BCI, possui mais de 4 anos de experiência no mercado financeiro e 
-              já ajudou mais de 500 clientes a alcançarem seus objetivos financeiros através de investimentos 
-              seguros e rentáveis em consórcios. Sua abordagem personalizada e transparente é o diferencial da BCI.
-            </p>
+              
+              <div className="bg-gradient-hero/20 rounded-xl p-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  "Com mais de <strong className="text-gradient-gold">27 anos de experiência</strong> 
+                  no mercado financeiro, dedico minha carreira a ajudar pessoas e empresas a 
+                  alcançarem suas metas através de <strong className="text-white">investimentos 
+                  seguros e rentáveis</strong>."
+                </p>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  "Na <strong className="text-gradient-gold">OX CASH</strong>, nossa missão é 
+                  democratizar o acesso ao crédito imobiliário e proporcionar oportunidades 
+                  reais de crescimento patrimonial através de consórcios."
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
