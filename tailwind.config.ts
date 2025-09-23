@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Investment theme colors
+        gold: "hsl(var(--gold))",
+        "gold-dark": "hsl(var(--gold-dark))",
+        navy: "hsl(var(--navy))",
+        "navy-light": "hsl(var(--navy-light))",
+        "orange-cta": "hsl(var(--orange-cta))",
+        "orange-cta-hover": "hsl(var(--orange-cta-hover))",
+      },
+      backgroundImage: {
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-gold": "var(--gradient-gold)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        "gold": "var(--shadow-gold)",
+        "card": "var(--shadow-card)",
       },
       borderRadius: {
         lg: "var(--radius)",
