@@ -5,6 +5,9 @@ import CountdownTimer from "@/components/CountdownTimer";
 import EventInfo from "@/components/EventInfo";
 import WhatYouWillLearn from "@/components/WhatYouWillLearn";
 import InstructorProfile from "@/components/InstructorProfile";
+import CustomerReviews from "@/components/CustomerReviews";
+import VideoSection from "@/components/VideoSection";
+import LocationMap from "@/components/LocationMap";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
@@ -25,12 +28,12 @@ const Index = () => {
           <Logo />
           
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Aprenda a formar <span className="text-gradient-gold">patrimônio e renda passiva</span> com consórcios, de forma <span className="text-gradient-gold">100% gratuita</span>
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+              Aprenda a formar <span className="text-gradient-gold">patrimônio e renda passiva</span> com investimentos seguros, de forma <span className="text-gradient-gold">100% gratuita</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              É possível ter uma rentabilidade de <strong className="text-white">+500%</strong> com as estratégias certas de consórcio que você irá aprender no curso exclusivo com <strong className="text-gradient-gold">Henrique Corso</strong>
+            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Com mais de 4 anos no mercado e <strong className="text-white">+500 clientes satisfeitos</strong>, a BCI oferece as melhores estratégias de investimento que você irá aprender no curso exclusivo com <strong className="text-gradient-gold">Oscar</strong>
             </p>
           </div>
           
@@ -60,6 +63,8 @@ const Index = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <WhatYouWillLearn />
         
+        <VideoSection />
+        
         {/* CTA Section */}
         <section className="text-center py-16">
         <Button 
@@ -74,12 +79,16 @@ const Index = () => {
 
         <InstructorProfile />
         
+        <CustomerReviews />
+        
+        <LocationMap />
+        
         {/* Final CTA Section */}
         <section className="text-center py-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
             Não perca a chance de transformar seu futuro financeiro.
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Esta é a sua chance de ter acesso a um conhecimento que pode acelerar em anos a sua jornada de enriquecimento. As vagas são limitadas.
           </p>
         <Button 

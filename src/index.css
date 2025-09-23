@@ -105,4 +105,35 @@ All colors MUST be HSL.
   .card-investment {
     @apply bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl;
   }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  /* Mobile responsiveness fixes */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+    
+    h1 {
+      @apply text-2xl leading-tight;
+    }
+    
+    h2 {
+      @apply text-xl;
+    }
+    
+    .btn-cta {
+      @apply py-3 px-6 text-base;
+    }
+  }
 }
