@@ -19,7 +19,7 @@ const InstructorProfile = () => {
     {
       name: "Oscar IHMS",
       title: "Sócio Fundador & CTO",
-      photo: instructorPhoto,
+      photo: "/lovable-uploads/e253f5f7-f4a1-4600-9e89-2e3339e4e22d.png",
       credentials: [
         "Co-fundador da OX CASH",
         "Especialista em sistemas financeiros",
