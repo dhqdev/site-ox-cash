@@ -14,8 +14,38 @@ import logoBoa from "@/assets/logo-boa.png";
 import logoSaoVicente from "@/assets/logo-sao-vicente.png";
 import logoTulipa from "@/assets/logo-tulipa.png";
 
+// Import dos logos das representações
+import logoRodobens from "@/assets/logo-rodobens.png";
+import logoYamaha from "@/assets/logo-yamaha.png";
+import logoServopa from "@/assets/logo-servopa.png";
+import logoEmbracon from "@/assets/logo-embracon.png";
+
 const Clientes = () => {
   const navigate = useNavigate();
+
+  // Representações da OX CASH
+  const representacoes = [
+    {
+      nome: "Rodobens Consórcio",
+      categoria: "Consórcios",
+      logo: logoRodobens,
+    },
+    {
+      nome: "Yamaha",
+      categoria: "Veículos",
+      logo: logoYamaha,
+    },
+    {
+      nome: "Consórcio Servopa",
+      categoria: "Consórcios",
+      logo: logoServopa,
+    },
+    {
+      nome: "Consórcio Embracon",
+      categoria: "Consórcios",
+      logo: logoEmbracon,
+    }
+  ];
 
   // Logos dos clientes baseados nas imagens fornecidas
   const clientes = [
@@ -103,6 +133,47 @@ const Clientes = () => {
                 <div className="text-3xl font-bold text-gradient-gold mb-2">100%</div>
                 <div className="text-sm text-muted-foreground">Satisfação</div>
               </div>
+            </div>
+          </div>
+
+          {/* Seção Nossas Representações */}
+          <div className="mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-6">
+                Nossas <span className="text-gradient-gold">Representações</span>
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Somos representantes oficiais das principais empresas de consórcios e veículos do país, 
+                oferecendo as melhores condições e oportunidades de investimento para nossos clientes.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              {representacoes.map((representacao, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-110 hover:bg-white/10 transition-all duration-500 group cursor-pointer shadow-xl"
+                >
+                  <div className="text-center">
+                    {/* Logo da representação */}
+                    <div className="w-20 h-20 bg-white/90 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white transition-all duration-300 shadow-lg overflow-hidden">
+                      <img 
+                        src={representacao.logo} 
+                        alt={`Logo ${representacao.nome}`}
+                        className="w-16 h-16 object-contain"
+                      />
+                    </div>
+                    
+                    <h3 className="font-bold text-white text-base mb-2 leading-tight">
+                      {representacao.nome}
+                    </h3>
+                    
+                    <div className="inline-block bg-gradient-gold/30 px-3 py-1 rounded-full">
+                      <span className="text-xs text-gold font-semibold">{representacao.categoria}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
