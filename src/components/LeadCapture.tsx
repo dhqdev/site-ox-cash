@@ -16,10 +16,32 @@ const LeadCapture = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    if (name === 'whatsapp') {
+      // Remove todos os caracteres não numéricos
+      const numbersOnly = value.replace(/\D/g, '');
+      
+      // Se não começar com 55, adiciona automaticamente
+      let formattedValue = numbersOnly;
+      if (!numbersOnly.startsWith('55')) {
+        formattedValue = '55' + numbersOnly;
+      }
+      
+      // Limita a 13 dígitos (55 + 11 dígitos)
+      if (formattedValue.length > 13) {
+        formattedValue = formattedValue.slice(0, 13);
+      }
+      
+      setFormData(prev => ({
+        ...prev,
+        [name]: formattedValue
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -46,12 +68,12 @@ const LeadCapture = () => {
       return;
     }
 
-    // Validação de WhatsApp (deve ter pelo menos 10 dígitos)
+    // Validação de WhatsApp (deve ter 13 dígitos: 55 + DDD + número)
     const whatsappNumbers = formData.whatsapp.replace(/\D/g, '');
-    if (whatsappNumbers.length < 10) {
+    if (whatsappNumbers.length < 13 || !whatsappNumbers.startsWith('55')) {
       toast({
         title: "Erro",
-        description: "Por favor, insira um número de WhatsApp válido com DDD.",
+        description: "Por favor, insira um número de WhatsApp válido com DDD (ex: 5519999999999).",
         variant: "destructive",
       });
       return;
@@ -170,7 +192,7 @@ const LeadCapture = () => {
                   type="tel"
                   value={formData.whatsapp}
                   onChange={handleInputChange}
-                  placeholder="(19) 99999-9999"
+                  placeholder="5519999999999"
                   className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold focus:ring-gold h-12 text-base"
                   required
                 />
