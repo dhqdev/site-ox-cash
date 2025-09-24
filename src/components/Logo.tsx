@@ -1,19 +1,45 @@
-import coinIcon from "@/assets/coin-icon.png";
-
 const Logo = () => {
   return (
-    <div className="flex items-center justify-center gap-4 mb-12">
-      <img src={coinIcon} alt="OX Cash Icon" className="w-16 h-16" />
-      <div className="text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-2">
-          <span className="text-gradient-gold">OX CASH</span>
-        </h1>
-        <p className="text-xl md:text-2xl font-medium text-white/80 mb-2">
-          + que negócio e investimento
-        </p>
-        <p className="text-lg text-muted-foreground">
-          BCI - Banco de Crédito Digital
-        </p>
+    <div className="text-center mb-8 sm:mb-12">
+      <div className="relative inline-block">
+        {/* Background decorativo */}
+        <div className="absolute -inset-4 bg-gradient-gold/20 rounded-3xl blur-xl"></div>
+        
+        <div className="relative bg-gradient-hero/50 backdrop-blur-sm border border-gold/20 rounded-2xl p-6 sm:p-8 md:p-10">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="text-3xl sm:text-4xl">🏦</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+              <span className="text-gradient-gold">OX CASH</span>
+            </h1>
+          </div>
+          
+          <div className="space-y-2">
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-white/90">
+              + que <span className="text-gradient-gold">negócio</span> e <span className="text-gradient-gold">investimento</span>
+            </p>
+            <div className="inline-flex items-center gap-2 bg-gradient-gold/10 px-4 py-2 rounded-full border border-gold/30">
+              <span className="text-sm sm:text-base font-semibold text-gradient-gold">
+                BCI - Banco de Crédito Digital
+              </span>
+            </div>
+          </div>
+          
+          {/* Indicadores de credibilidade */}
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mt-4 text-xs sm:text-sm">
+            <div className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              <span className="text-white/70">27 anos</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              <span className="text-white/70">500+ clientes</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="text-green-400">✓</span>
+              <span className="text-white/70">R$ 150M vendas</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

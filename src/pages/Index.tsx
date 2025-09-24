@@ -5,8 +5,10 @@ import WhatYouWillLearn from "@/components/WhatYouWillLearn";
 import InstructorProfile from "@/components/InstructorProfile";
 import CustomerReviews from "@/components/CustomerReviews";
 import VideoSection from "@/components/VideoSection";
+import LeadCapture from "@/components/LeadCapture";
 import LocationMap from "@/components/LocationMap";
 import OurHistory from "@/components/OurHistory";
+import NavigationMenu from "@/components/NavigationMenu";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -23,75 +25,58 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
+      <section className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <Logo />
           
-          <div className="text-center mb-12">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6">
-              Invista em <span className="text-gradient-gold">crédito imobiliário</span> e tenha 
-              <span className="text-gradient-gold"> lucro garantido</span> com segurança
+          <div className="text-center mb-8 sm:mb-12">
+            {/* Badge de destaque */}
+            <div className="inline-flex items-center gap-2 bg-gradient-gold/20 border border-gold/30 px-4 py-2 rounded-full mb-6">
+              <span className="text-2xl animate-pulse">🔥</span>
+              <span className="text-sm sm:text-base font-semibold text-gradient-gold">
+                OPORTUNIDADE EXCLUSIVA DE INVESTIMENTO
+              </span>
+            </div>
+
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 sm:mb-6 px-2 sm:px-0">
+              Transforme <span className="text-gradient-gold">R$ 30 mil</span> em 
+              <span className="text-gradient-gold"> R$ 85 mil</span> em 36 meses
             </h1>
             
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Com mais de <strong className="text-gradient-gold">27 anos de experiência</strong> e 
-              <strong className="text-white"> +500 clientes satisfeitos</strong>, a OX CASH oferece 
-              as melhores oportunidades de investimento através do nosso 
-              <strong className="text-gradient-gold"> BCI - Banco de Crédito Digital</strong>
-            </p>
-          </div>
-          
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
-            <div className="lg:w-1/2">
-              <CompanyInfo />
-              <div className="text-center space-y-4">
-                <WhatsAppCTA 
-                  text="CONHECER OPORTUNIDADES"
-                  className="text-lg px-12 w-full"
-                />
-                <Button 
-                  onClick={handleCotasClick}
-                  variant="outline"
-                  size="lg"
-                  className="text-lg px-12 w-full text-white border-white hover:bg-white hover:text-primary"
-                >
-                  VER COTAS CONTEMPLADAS
-                </Button>
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2">
-              <div className="bg-gradient-card border border-border rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-6 text-center text-gradient-gold">
-                  Por que escolher a OX CASH?
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">🏆 <strong>27 anos</strong> de tradição no mercado</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">👨‍👩‍👧‍👦 <strong>Empresa familiar</strong> com valores sólidos</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">📈 <strong>Recorde de vendas</strong> e resultados</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">🏦 <strong>Fornecedor de crédito</strong> especializado</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">🔒 <strong>Segurança e transparência</strong> garantidas</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gradient-gold rounded-full"></div>
-                    <span className="text-sm">💰 <strong>Rentabilidade</strong> através de consórcios</span>
-                  </div>
+            <div className="bg-gradient-hero/30 backdrop-blur-sm border border-gold/20 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 max-w-4xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4">
+                <strong className="text-gradient-gold">Crédito imobiliário com rentabilidade garantida</strong> - 
+                O investimento mais seguro e lucrativo do mercado
+              </p>
+              
+              {/* Estatísticas impressionantes */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
+                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">27 ANOS</div>
+                  <div className="text-xs sm:text-sm text-white/70">de experiência</div>
+                </div>
+                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
+                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">500+</div>
+                  <div className="text-xs sm:text-sm text-white/70">clientes satisfeitos</div>
+                </div>
+                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
+                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">R$ 150M</div>
+                  <div className="text-xs sm:text-sm text-white/70">em vendas realizadas</div>
                 </div>
               </div>
+            </div>
+
+            {/* Call to Action principal */}
+            <div className="flex justify-center mb-6">
+              <div className="bg-gradient-gold text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer">
+                🚀 QUERO INVESTIR AGORA
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex justify-center">
+            <div className="max-w-2xl">
+              <CompanyInfo />
             </div>
           </div>
         </div>
@@ -104,32 +89,7 @@ const Index = () => {
         
         <VideoSection />
         
-        {/* CTA Section */}
-        <section className="text-center py-16">
-          <div className="bg-gradient-card border border-border rounded-2xl p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
-              Quer saber mais sobre nossos <span className="text-gradient-gold">investimentos?</span>
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Nossa equipe especializada está pronta para apresentar as melhores oportunidades 
-              de <strong className="text-white">crédito imobiliário e consórcios</strong> do mercado.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <WhatsAppCTA 
-                text="FALAR COM ESPECIALISTA"
-                className="text-xl px-16"
-              />
-              <Button 
-                onClick={handleCotasClick}
-                variant="outline"
-                size="lg"
-                className="text-xl px-16 text-white border-white hover:bg-white hover:text-primary"
-              >
-                VER COTAS DISPONÍVEIS
-              </Button>
-            </div>
-          </div>
-        </section>
+        <LeadCapture />
 
         <InstructorProfile />
         
@@ -138,23 +98,26 @@ const Index = () => {
         <LocationMap />
         
         {/* Final CTA Section */}
-        <section className="text-center py-16">
-          <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-border rounded-2xl p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+        <section className="text-center py-8 sm:py-12 md:py-16">
+          <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-border rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 leading-tight">
               Transforme seu futuro financeiro com a <span className="text-gradient-gold">OX CASH</span>
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
               Com <strong className="text-gradient-gold">27 anos de experiência</strong>, somos especialistas 
               em criar oportunidades de investimento seguras e rentáveis. 
               <strong className="text-white"> Sua confiança é nossa prioridade.</strong>
             </p>
             <WhatsAppCTA 
               text="COMEÇAR AGORA"
-              className="text-xl px-16"
+              className="text-base sm:text-lg md:text-xl px-8 sm:px-12 md:px-16"
             />
           </div>
         </section>
       </div>
+      
+      {/* Menu de navegação flutuante */}
+      <NavigationMenu />
     </div>
   );
 };

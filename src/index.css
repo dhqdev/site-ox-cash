@@ -135,5 +135,25 @@ All colors MUST be HSL.
     .btn-cta {
       @apply py-3 px-6 text-base;
     }
+    
+    /* Prevent horizontal scroll */
+    body {
+      @apply overflow-x-hidden;
+    }
+    
+    /* Fix video containers */
+    iframe, video {
+      @apply max-w-full h-auto;
+    }
+    
+    /* Fix wide elements */
+    * {
+      @apply max-w-full;
+    }
+  }
+  
+  /* Prevent body scroll when menu is open */
+  body.menu-open {
+    @apply overflow-hidden;
   }
 }
