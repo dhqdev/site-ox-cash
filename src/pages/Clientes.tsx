@@ -115,11 +115,11 @@ const Clientes = () => {
               >
                 <div className="text-center">
                   {/* Logo da empresa */}
-                  <div className="w-16 h-16 bg-white/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
+                  <div className="w-24 h-24 bg-white/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
                     <img 
                       src={cliente.logo} 
                       alt={`Logo ${cliente.nome}`}
-                      className="w-12 h-12 object-contain"
+                      className="w-20 h-20 object-contain"
                     />
                   </div>
                   
