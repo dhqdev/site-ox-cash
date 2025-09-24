@@ -26,7 +26,7 @@ const WhatYouWillLearn = () => {
     <section className="py-8 sm:py-16 px-4">
       <div className="text-center mb-8 sm:mb-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          Como a <span className="text-gradient-gold">OX CASH</span> pode
+          Como a <span className="text-gradient-gold">OX CA$H</span> pode
           <br className="hidden sm:block" />
           <span className="text-gradient-gold">transformar seus investimentos</span>
         </h2>

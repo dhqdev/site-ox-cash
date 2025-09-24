@@ -23,7 +23,7 @@ import logoEmbracon from "@/assets/logo-embracon.png";
 const Clientes = () => {
   const navigate = useNavigate();
 
-  // Representações da OX CASH
+  // Representações da OX CA$H
   const representacoes = [
     {
       nome: "Rodobens Consórcio",
@@ -106,7 +106,7 @@ const Clientes = () => {
           <div className="text-center mb-12">
             
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Clientes que <span className="text-gradient-gold">confiam</span> na OX CASH
+              Clientes que <span className="text-gradient-gold">confiam</span> na OX CA$H
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
@@ -184,7 +184,7 @@ const Clientes = () => {
                 Nossos <span className="text-gradient-gold">Clientes</span>
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Conheça as empresas que escolheram a OX CASH como parceira estratégica 
+                Conheça as empresas que escolheram a OX CA$H como parceira estratégica 
                 para suas necessidades financeiras e de investimento.
               </p>
             </div>
@@ -278,7 +278,7 @@ const Clientes = () => {
                 <Button 
                   onClick={() => {
                     const phoneNumber = "5519983673940";
-                    const message = "Olá! Gostaria de saber mais sobre parcerias com a OX CASH.";
+                    const message = "Olá! Gostaria de saber mais sobre parcerias com a OX CA$H.";
                     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
                   }}

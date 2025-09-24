@@ -9,7 +9,7 @@ const Logo = () => {
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="text-3xl sm:text-4xl">🏦</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              <span className="text-gradient-gold">OX CASH</span>
+              <span className="text-gradient-gold">OX CA$H</span>
             </h1>
           </div>
           

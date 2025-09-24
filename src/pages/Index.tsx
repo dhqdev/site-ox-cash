@@ -125,7 +125,7 @@ const Index = () => {
         <section className="text-center py-8 sm:py-12 md:py-16">
           <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-border rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 leading-tight">
-              Transforme seu futuro financeiro com a <span className="text-gradient-gold">OX CASH</span>
+              Transforme seu futuro financeiro com a <span className="text-gradient-gold">OX CA$H</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
               Com <strong className="text-gradient-gold">27 anos de experiência</strong>, somos especialistas 

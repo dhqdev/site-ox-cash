@@ -8,7 +8,7 @@ const InstructorProfile = () => {
       title: "Sócio Fundador & CEO",
       photo: oscarPhoto,
       credentials: [
-        "Sócio fundador da OX CASH", 
+        "Sócio fundador da OX CA$H", 
         "27+ anos de experiência no mercado financeiro",
         "Especialista em crédito imobiliário",
         "Mentor de centenas de investidores",
@@ -21,7 +21,7 @@ const InstructorProfile = () => {
       title: "Sócio Fundador & CTO",
       photo: "/lovable-uploads/e253f5f7-f4a1-4600-9e89-2e3339e4e22d.png",
       credentials: [
-        "Co-fundador da OX CASH",
+        "Co-fundador da OX CA$H",
         "Especialista em sistemas financeiros",
         "Expert em análise de crédito",
         "Desenvolvedor de estratégias inovadoras",
@@ -38,7 +38,7 @@ const InstructorProfile = () => {
           Conheça nossos <span className="text-gradient-gold">Fundadores</span>
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground">
-          Os especialistas por trás da OX CASH
+          Os especialistas por trás da OX CA$H
         </p>
       </div>
       
