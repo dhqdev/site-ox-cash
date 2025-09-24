@@ -61,7 +61,15 @@ const LeadCapture = () => {
 
     try {
       // Simular envio (você pode integrar com Google Sheets depois)
-      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      const res = await fetch('https://script.google.com/macros/s/AKfycbyaZLpv5slCQu7UcVznOO-4wg8O2Cgqac3J5dW2uZ2miAN6dnV_uKeoX9841V1B9iqL/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+      console.log(res)
+      if (!res.ok) {
+        throw new Error('Erro ao enviar dados');
+      }
       
       toast({
         title: "Sucesso! 🎉",
