@@ -3,6 +3,17 @@ import { Button } from "@/components/ui/button";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { useNavigate } from "react-router-dom";
 
+// Import dos logos
+import logoCato from "@/assets/logo-cato.png";
+import logoGazellato from "@/assets/logo-gazellato.png";
+import logoEstacaoVegana from "@/assets/logo-estacao-vegana.png";
+import logoImperio from "@/assets/logo-imperio.png";
+import logoJundaquece from "@/assets/logo-jundaquece.png";
+import logoCrescer from "@/assets/logo-crescer.png";
+import logoBoa from "@/assets/logo-boa.png";
+import logoSaoVicente from "@/assets/logo-sao-vicente.png";
+import logoTulipa from "@/assets/logo-tulipa.png";
+
 const Clientes = () => {
   const navigate = useNavigate();
 
@@ -11,47 +22,47 @@ const Clientes = () => {
     {
       nome: "Supermercados Boa",
       categoria: "Varejo",
-      logo: "/placeholder.svg",
+      logo: logoBoa,
     },
     {
       nome: "Supermercados São Vicente",
       categoria: "Varejo",
-      logo: "/placeholder.svg",
+      logo: logoSaoVicente,
     },
     {
       nome: "Cato Supermercados",
       categoria: "Varejo",
-      logo: "/placeholder.svg",
+      logo: logoCato,
     },
     {
       nome: "Império",
       categoria: "Alimentação",
-      logo: "/placeholder.svg",
+      logo: logoImperio,
     },
     {
       nome: "Estação Vegana",
       categoria: "Alimentação",
-      logo: "/placeholder.svg",
+      logo: logoEstacaoVegana,
     },
     {
       nome: "Instituto Crescer",
       categoria: "Educação",
-      logo: "/placeholder.svg",
+      logo: logoCrescer,
     },
     {
       nome: "Jundaquece",
       categoria: "Serviços",
-      logo: "/placeholder.svg",
+      logo: logoJundaquece,
     },
     {
       nome: "Supermercado Gazellato",
       categoria: "Varejo",
-      logo: "/placeholder.svg",
+      logo: logoGazellato,
     },
     {
       nome: "Tulipa Pré-Fabricados",
       categoria: "Construção",
-      logo: "/placeholder.svg",
+      logo: logoTulipa,
     }
   ];
 
@@ -103,9 +114,13 @@ const Clientes = () => {
                 className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:scale-105 hover:bg-white/20 transition-all duration-300 group cursor-pointer"
               >
                 <div className="text-center">
-                  {/* Logo placeholder - substitua pela imagem real */}
-                  <div className="w-16 h-16 bg-gradient-gold/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-gradient-gold/30 transition-colors">
-                    <span className="text-2xl font-bold text-white">{cliente.nome.charAt(0)}</span>
+                  {/* Logo da empresa */}
+                  <div className="w-16 h-16 bg-white/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
+                    <img 
+                      src={cliente.logo} 
+                      alt={`Logo ${cliente.nome}`}
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                   
                   <h3 className="font-bold text-white text-sm mb-2 leading-tight">
