@@ -9,86 +9,51 @@ const Clientes = () => {
   // Logos dos clientes baseados nas imagens fornecidas
   const clientes = [
     {
-      nome: "Rodobens Consórcio",
-      categoria: "Consórcios",
-      logo: "/placeholder.svg", // Substitua pela imagem real
-      descricao: "Líder em consórcios automotivos"
-    },
-    {
-      nome: "Yamaha",
-      categoria: "Motocicletas",
+      nome: "Supermercados Boa",
+      categoria: "Varejo",
       logo: "/placeholder.svg",
-      descricao: "Motocicletas e veículos aquáticos"
-    },
-    {
-      nome: "Consórcio Servopa",
-      categoria: "Consórcios",
-      logo: "/placeholder.svg",
-      descricao: "Soluções em consórcios"
-    },
-    {
-      nome: "Consórcio Embracon",
-      categoria: "Consórcios",
-      logo: "/placeholder.svg",
-      descricao: "Consórcios digitais"
-    },
-    {
-      nome: "Banco Boa",
-      categoria: "Financeiro",
-      logo: "/placeholder.svg",
-      descricao: "Soluções financeiras"
     },
     {
       nome: "Supermercados São Vicente",
       categoria: "Varejo",
       logo: "/placeholder.svg",
-      descricao: "Rede de supermercados"
     },
     {
       nome: "Cato Supermercados",
       categoria: "Varejo",
       logo: "/placeholder.svg",
-      descricao: "Cada vez melhor"
     },
     {
-      nome: "Império Confeitaria",
+      nome: "Império",
       categoria: "Alimentação",
       logo: "/placeholder.svg",
-      descricao: "Confeitaria tradicional"
     },
     {
       nome: "Estação Vegana",
       categoria: "Alimentação",
       logo: "/placeholder.svg",
-      descricao: "Culinária vegana"
     },
     {
       nome: "Instituto Crescer",
       categoria: "Educação",
       logo: "/placeholder.svg",
-      descricao: "Educação infantil e fundamental"
     },
     {
-      nome: "JUI",
+      nome: "Jundaquece",
       categoria: "Serviços",
       logo: "/placeholder.svg",
-      descricao: "Soluções empresariais"
     },
     {
-      nome: "Supermercado Gazellão",
+      nome: "Supermercado Gazellato",
       categoria: "Varejo",
       logo: "/placeholder.svg",
-      descricao: "Compre bem, aqui"
     },
     {
       nome: "Tulipa Pré-Fabricados",
       categoria: "Construção",
       logo: "/placeholder.svg",
-      descricao: "Estruturas pré-fabricadas"
     }
   ];
-
-  const categorias = ["Todos", "Consórcios", "Varejo", "Financeiro", "Alimentação", "Educação", "Serviços", "Construção", "Motocicletas"];
 
   return (
     <div className="min-h-screen bg-gradient-hero">
@@ -142,20 +107,6 @@ const Clientes = () => {
             </div>
           </div>
 
-          {/* Filtros por categoria */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categorias.map((categoria) => (
-              <Button
-                key={categoria}
-                variant="outline"
-                size="sm"
-                className="text-white border-white/20 hover:bg-gradient-gold hover:text-black hover:border-gold transition-all duration-200"
-              >
-                {categoria}
-              </Button>
-            ))}
-          </div>
-
           {/* Grid de Logos dos Clientes */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
             {clientes.map((cliente, index) => (
@@ -176,10 +127,6 @@ const Clientes = () => {
                   <div className="inline-block bg-gradient-gold/20 px-2 py-1 rounded-full mb-2">
                     <span className="text-xs text-gold font-medium">{cliente.categoria}</span>
                   </div>
-                  
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {cliente.descricao}
-                  </p>
                 </div>
               </div>
             ))}
