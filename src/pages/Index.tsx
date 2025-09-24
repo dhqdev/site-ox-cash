@@ -8,8 +8,8 @@ import VideoSection from "@/components/VideoSection";
 import LeadCapture from "@/components/LeadCapture";
 import LocationMap from "@/components/LocationMap";
 import OurHistory from "@/components/OurHistory";
-import NavigationMenu from "@/components/NavigationMenu";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -20,34 +20,34 @@ const Index = () => {
     navigate('/cotas-contempladas');
   };
 
+  const scrollToCadastro = () => {
+    const elemento = document.getElementById('cadastro');
+    if (elemento) {
+      elemento.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16 px-4">
+      <section className="pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-12 md:pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <Logo />
           
           <div className="text-center mb-8 sm:mb-12">
             {/* Badge de destaque */}
-            <div className="inline-flex items-center gap-2 bg-gradient-gold/20 border border-gold/30 px-4 py-2 rounded-full mb-6">
-              <span className="text-2xl animate-pulse">🔥</span>
-              <span className="text-sm sm:text-base font-semibold text-gradient-gold">
-                OPORTUNIDADE EXCLUSIVA DE INVESTIMENTO
-              </span>
-            </div>
 
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 sm:mb-6 px-2 sm:px-0">
               Transforme <span className="text-gradient-gold">R$ 30 mil</span> em 
-              <span className="text-gradient-gold"> R$ 85 mil</span> em 36 meses
+              <span className="text-gradient-gold"> R$ 85 mil</span> em torno 37 meses
             </h1>
             
             <div className="bg-gradient-hero/30 backdrop-blur-sm border border-gold/20 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 max-w-4xl mx-auto">
-              <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4">
-                <strong className="text-gradient-gold">Crédito imobiliário com rentabilidade garantida</strong> - 
-                O investimento mais seguro e lucrativo do mercado
-              </p>
               
               {/* Estatísticas impressionantes */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
@@ -68,9 +68,35 @@ const Index = () => {
 
             {/* Call to Action principal */}
             <div className="flex justify-center mb-6">
-              <div className="bg-gradient-gold text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer">
+              <div 
+                onClick={scrollToCadastro}
+                className="bg-gradient-gold text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer"
+              >
                 🚀 QUERO INVESTIR AGORA
               </div>
+            </div>
+
+            {/* Botões de Navegação */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+              <button
+                onClick={() => navigate('/cotas-contempladas')}
+                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 min-w-[200px]"
+              >
+                <span className="text-lg">📋</span>
+                VER COTAS DISPONÍVEIS
+              </button>
+              <button
+                onClick={() => navigate('/clientes')}
+                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 min-w-[200px]"
+              >
+                <span className="text-lg">🤝</span>
+                NOSSOS CLIENTES
+              </button>
+            </div>
+
+            {/* Vídeo do YouTube */}
+            <div className="mb-8">
+              <VideoSection />
             </div>
           </div>
           
@@ -86,8 +112,6 @@ const Index = () => {
         <OurHistory />
         
         <WhatYouWillLearn />
-        
-        <VideoSection />
         
         <LeadCapture />
 
@@ -116,8 +140,8 @@ const Index = () => {
         </section>
       </div>
       
-      {/* Menu de navegação flutuante */}
-      <NavigationMenu />
+      {/* WhatsApp flutuante */}
+      <WhatsAppFloat />
     </div>
   );
 };

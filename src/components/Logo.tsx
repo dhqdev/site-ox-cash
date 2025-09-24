@@ -22,23 +22,7 @@ const Logo = () => {
                 BCI - Banco de Crédito Digital
               </span>
             </div>
-          </div>
-          
-          {/* Indicadores de credibilidade */}
-          <div className="flex items-center justify-center gap-4 sm:gap-6 mt-4 text-xs sm:text-sm">
-            <div className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              <span className="text-white/70">27 anos</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              <span className="text-white/70">500+ clientes</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-green-400">✓</span>
-              <span className="text-white/70">R$ 150M vendas</span>
-            </div>
-          </div>
+          </div>          
         </div>
       </div>
     </div>

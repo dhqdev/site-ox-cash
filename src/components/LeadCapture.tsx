@@ -97,7 +97,7 @@ const LeadCapture = () => {
   };
 
   return (
-    <section className="py-8 sm:py-16 px-4">
+    <section id="cadastro" className="py-8 sm:py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="bg-gradient-card border border-border rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 relative overflow-hidden">
           {/* Background decorativo */}

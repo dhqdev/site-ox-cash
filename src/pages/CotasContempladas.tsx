@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
-import NavigationMenu from "@/components/NavigationMenu";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const CotasContempladas = () => {
     <div className="min-h-screen bg-gradient-hero">
       <Header />
       
-      <div className="pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12 md:pb-16 px-4">
+      <div className="pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-12 md:pb-16 px-4">
         <div className="container mx-auto max-w-6xl">
           {/* Header Section */}
           <div className="text-center mb-8 sm:mb-12">
@@ -285,8 +285,8 @@ const CotasContempladas = () => {
         </div>
       </div>
       
-      {/* Menu de navegação flutuante */}
-      <NavigationMenu />
+      {/* WhatsApp flutuante */}
+      <WhatsAppFloat />
     </div>
   );
 };

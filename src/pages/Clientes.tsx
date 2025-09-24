@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
-import NavigationMenu from "@/components/NavigationMenu";
 import { Button } from "@/components/ui/button";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { useNavigate } from "react-router-dom";
 
 const Clientes = () => {
@@ -94,7 +94,7 @@ const Clientes = () => {
     <div className="min-h-screen bg-gradient-hero">
       <Header />
       
-      <div className="pt-24 pb-16 px-4">
+      <div className="pt-16 pb-16 px-4">
         <div className="container mx-auto max-w-7xl">
           {/* Header Section */}
           <div className="text-center mb-12">
@@ -265,8 +265,8 @@ const Clientes = () => {
         </div>
       </div>
       
-      {/* Menu de navegação flutuante */}
-      <NavigationMenu />
+      {/* WhatsApp flutuante */}
+      <WhatsAppFloat />
     </div>
   );
 };
