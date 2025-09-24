@@ -63,18 +63,6 @@ const Clientes = () => {
         <div className="container mx-auto max-w-7xl">
           {/* Header Section */}
           <div className="text-center mb-12">
-            <Button 
-              variant="outline" 
-              onClick={() => navigate('/')}
-              className="mb-8 text-white border-white hover:bg-white hover:text-primary"
-            >
-              ← Voltar ao Início
-            </Button>
-            
-            <div className="inline-flex items-center gap-2 bg-gradient-gold/20 px-4 py-2 rounded-full mb-6">
-              <span className="text-2xl">🤝</span>
-              <span className="text-gold font-semibold">NOSSOS PARCEIROS</span>
-            </div>
             
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
               Clientes que <span className="text-gradient-gold">confiam</span> na OX CASH
