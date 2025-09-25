@@ -26,6 +26,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
   const [showQuoteOnMobile, setShowQuoteOnMobile] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
+  const [isInView, setIsInView] = useState(false);
 
   // Função para detectar se é mobile - agora com verificação mais robusta
   const checkIsMobile = useCallback(() => {
@@ -52,6 +53,39 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     };
   }, [checkIsMobile]);
 
+  // Intersection Observer para detectar quando o card está visível (apenas mobile)
+  useEffect(() => {
+    if (!isMobileDevice || !wrapRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            // Mostrar a frase automaticamente quando entra na viewport
+            setTimeout(() => {
+              setShowQuoteOnMobile(true);
+            }, 300); // Pequeno delay para suavizar a animação
+          } else {
+            setIsInView(false);
+            // Esconder a frase quando sai da viewport
+            setShowQuoteOnMobile(false);
+          }
+        });
+      },
+      {
+        threshold: 0.6, // Mostrar quando 60% do card está visível
+        rootMargin: '-50px' // Margem para ajustar quando dispara
+      }
+    );
+
+    observer.observe(wrapRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isMobileDevice]);
+
   // Fechar quote no mobile quando clicar fora
   useEffect(() => {
     if (!isMobileDevice || !showQuoteOnMobile) return;
@@ -68,7 +102,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     };
   }, [isMobileDevice, showQuoteOnMobile]);
 
-  // Função para alternar a frase no mobile - suporte tanto click quanto touch
+  // Função para alternar a frase no mobile - agora apenas para esconder ou como fallback
   const handleMobileClick = useCallback((e: React.MouseEvent) => {
     // Só funciona no mobile
     if (!isMobileDevice) return;
@@ -83,11 +117,16 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     
     e.preventDefault();
     e.stopPropagation();
-    // No mobile: primeiro clique mostra, segundo clique esconde
-    setShowQuoteOnMobile(prev => !prev);
-  }, [isMobileDevice]);
+    
+    // Se a frase está visível, esconder. Se não está, mostrar (fallback)
+    if (showQuoteOnMobile) {
+      setShowQuoteOnMobile(false);
+    } else {
+      setShowQuoteOnMobile(true);
+    }
+  }, [isMobileDevice, showQuoteOnMobile]);
 
-  // Função para touch events
+  // Função para touch events - mesmo comportamento
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     // Só funciona no mobile
     if (!isMobileDevice) return;
@@ -102,9 +141,14 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     
     e.preventDefault();
     e.stopPropagation();
-    // No mobile: primeiro toque mostra, segundo toque esconde
-    setShowQuoteOnMobile(prev => !prev);
-  }, [isMobileDevice]);
+    
+    // Se a frase está visível, esconder. Se não está, mostrar (fallback)
+    if (showQuoteOnMobile) {
+      setShowQuoteOnMobile(false);
+    } else {
+      setShowQuoteOnMobile(true);
+    }
+  }, [isMobileDevice, showQuoteOnMobile]);
 
   // Efeitos de movimento do card (apenas desktop)
   useEffect(() => {
@@ -221,13 +265,19 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               </div>
             </div>
           </div>
-          {/* Overlay com a frase - aparece no hover (desktop) e click (mobile) */}
+          {/* Overlay com a frase - aparece no hover (desktop) e automaticamente no scroll (mobile) */}
           {quote && (
             <div className={`pc-quote-overlay ${showQuoteOnMobile ? 'pc-show-mobile' : ''}`}>
               <div className="pc-quote-content">
                 <p className="pc-quote-text">
                   <strong>"{quote}"</strong>
                 </p>
+                {/* Indicador sutil para mobile que pode ser clicado para esconder */}
+                {isMobileDevice && showQuoteOnMobile && (
+                  <div className="pc-mobile-hint">
+                    Toque para esconder
+                  </div>
+                )}
               </div>
             </div>
           )}
