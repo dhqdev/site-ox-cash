@@ -102,7 +102,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     };
   }, [isMobileDevice, showQuoteOnMobile]);
 
-  // Função para alternar a frase no mobile - agora apenas para esconder ou como fallback
+  // Função para alternar a frase no mobile - agora permite scroll
   const handleMobileClick = useCallback((e: React.MouseEvent) => {
     // Só funciona no mobile
     if (!isMobileDevice) return;
@@ -115,7 +115,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       return;
     }
     
-    e.preventDefault();
+    // Não prevenir o comportamento padrão para permitir scroll
     e.stopPropagation();
     
     // Se a frase está visível, esconder. Se não está, mostrar (fallback)
@@ -126,7 +126,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     }
   }, [isMobileDevice, showQuoteOnMobile]);
 
-  // Função para touch events - mesmo comportamento
+  // Função para touch events - agora permite scroll
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     // Só funciona no mobile
     if (!isMobileDevice) return;
@@ -139,7 +139,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       return;
     }
     
-    e.preventDefault();
+    // Não prevenir o comportamento padrão para permitir scroll
     e.stopPropagation();
     
     // Se a frase está visível, esconder. Se não está, mostrar (fallback)

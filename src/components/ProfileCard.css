@@ -32,7 +32,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: auto; /* Permite scroll natural */
   width: 100%;
   height: 450px;
   max-width: 350px;
@@ -106,7 +106,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: auto; /* Permite scroll natural */
   width: 100%;
   height: 450px;
   max-width: 350px;
