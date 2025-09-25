@@ -126,12 +126,7 @@ const LeadCapture = () => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-gold/10 rounded-full blur-3xl -z-10"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
           
-          <div className="text-center mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-2 bg-gradient-gold/20 px-3 sm:px-4 py-2 rounded-full mb-4">
-              <span className="text-xl sm:text-2xl">🚀</span>
-              <span className="text-gold font-semibold text-sm sm:text-base">OPORTUNIDADE EXCLUSIVA</span>
-            </div>
-            
+          <div className="text-center mb-6 sm:mb-8">           
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
               Receba nossa <span className="text-gradient-gold">consulta gratuita</span>!
             </h2>

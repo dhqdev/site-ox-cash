@@ -25,9 +25,15 @@ const WhatsAppCTA = ({
       onClick={handleWhatsAppContact}
       variant={variant}
       size={size}
-      className={`text-lg px-12 ${className}`}
+      className={`group relative bg-gradient-to-r from-green-500 via-green-600 to-emerald-600 hover:from-green-600 hover:via-green-700 hover:to-emerald-700 text-white font-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/25 ${className} overflow-hidden`}
     >
-      📱 {text}
+      {/* Shimmer effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+      
+      <span className="relative flex items-center gap-3">
+        {text}
+        <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+      </span>
     </Button>
   );
 };

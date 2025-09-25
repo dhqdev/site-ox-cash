@@ -1,7 +1,11 @@
-import { Button } from "@/components/ui/button";
+import CardNav from "./CardNav";
 
 const Header = () => {
-  return null; // Header removido completamente
+  return (
+    <div className="relative">
+      <CardNav />
+    </div>
+  );
 };
 
 export default Header;

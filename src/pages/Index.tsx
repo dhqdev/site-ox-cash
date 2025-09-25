@@ -35,67 +35,43 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-8 sm:pt-12 md:pt-16 pb-8 sm:pb-12 md:pb-16 px-4">
+      <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <Logo />
           
           <div className="text-center mb-8 sm:mb-12">
-            {/* Badge de destaque */}
-
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-4 sm:mb-6 px-2 sm:px-0">
-              Transforme <span className="text-gradient-gold">R$ 30 mil</span> em 
-              <span className="text-gradient-gold"> R$ 85 mil</span> em torno 37 meses
-            </h1>
-            
-            <div className="bg-gradient-hero/30 backdrop-blur-sm border border-gold/20 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8 max-w-4xl mx-auto">
+            {/* Proposta de valor principal */}
+            <div className="mb-8 sm:mb-12">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-6 sm:mb-8 px-2 sm:px-0">
+                Transforme <span className="text-gradient-gold">R$ 30 mil</span> em 
+                <span className="text-gradient-gold"> R$ 85 mil</span> em torno 37 meses
+              </h1>
               
-              {/* Estatísticas impressionantes */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
-                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">27 ANOS</div>
-                  <div className="text-xs sm:text-sm text-white/70">de experiência</div>
+              {/* Subtitle com mais impacto */}
+              <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
+                 <span className="text-yellow-400 font-semibold">Investimento seguro e rentável</span> com acompanhamento especializado
+              </p>
+            </div>
+            
+            {/* Estatísticas em destaque */}
+            <div className="bg-gradient-to-br from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-md border border-gold/30 rounded-3xl p-6 sm:p-8 mb-10 sm:mb-12 max-w-5xl mx-auto shadow-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-2xl p-4 sm:p-6 border border-amber-400/30 transform hover:scale-105 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-black text-gradient-gold mb-2">27 ANOS</div>
+                  <div className="text-sm sm:text-base text-white/80 font-medium">de experiência no mercado</div>
                 </div>
-                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
-                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">500+</div>
-                  <div className="text-xs sm:text-sm text-white/70">clientes satisfeitos</div>
+                <div className="bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-2xl p-4 sm:p-6 border border-emerald-400/30 transform hover:scale-105 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-black text-gradient-gold mb-2">500+</div>
+                  <div className="text-sm sm:text-base text-white/80 font-medium">clientes satisfeitos</div>
                 </div>
-                <div className="bg-gradient-gold/10 rounded-xl p-3 border border-gold/20">
-                  <div className="text-lg sm:text-xl font-bold text-gradient-gold">R$ 150M</div>
-                  <div className="text-xs sm:text-sm text-white/70">em vendas realizadas</div>
+                <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-4 sm:p-6 border border-blue-400/30 transform hover:scale-105 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-black text-gradient-gold mb-2">R$ 150M</div>
+                  <div className="text-sm sm:text-base text-white/80 font-medium">em vendas realizadas</div>
                 </div>
               </div>
             </div>
-
-            {/* Call to Action principal */}
-            <div className="flex justify-center mb-6">
-              <div 
-                onClick={scrollToCadastro}
-                className="bg-gradient-gold text-black px-8 py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:scale-105 transition-transform cursor-pointer"
-              >
-                🚀 QUERO INVESTIR AGORA
-              </div>
-            </div>
-
-            {/* Botões de Navegação */}
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-              <button
-                onClick={() => navigate('/cotas-contempladas')}
-                className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 min-w-[200px]"
-              >
-                <span className="text-lg">📋</span>
-                VER COTAS DISPONÍVEIS
-              </button>
-              <button
-                onClick={() => navigate('/clientes')}
-                className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base shadow-lg hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2 min-w-[200px]"
-              >
-                <span className="text-lg">🤝</span>
-                NOSSOS CLIENTES
-              </button>
-            </div>
-
             {/* Vídeo do YouTube */}
-            <div className="mb-8">
+            <div className="mt-12 sm:mt-16">
               <VideoSection />
             </div>
           </div>
@@ -122,20 +98,29 @@ const Index = () => {
         <LocationMap />
         
         {/* Final CTA Section */}
-        <section className="text-center py-8 sm:py-12 md:py-16">
-          <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-border rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 leading-tight">
-              Transforme seu futuro financeiro com a <span className="text-gradient-gold">OX CA$H</span>
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
-              Com <strong className="text-gradient-gold">27 anos de experiência</strong>, somos especialistas 
-              em criar oportunidades de investimento seguras e rentáveis. 
-              <strong className="text-white"> Sua confiança é nossa prioridade.</strong>
-            </p>
-            <WhatsAppCTA 
-              text="COMEÇAR AGORA"
-              className="text-base sm:text-lg md:text-xl px-8 sm:px-12 md:px-16"
-            />
+        <section className="text-center py-12 sm:py-16 md:py-20">
+          <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur-md border-2 border-gradient-gold/30 rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden">
+            {/* Background effects */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400/20 via-orange-500/20 to-red-500/20 rounded-3xl blur-2xl animate-pulse"></div>
+            
+            <div className="relative">
+              
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-6 sm:mb-8 leading-tight">
+                Transforme seu futuro financeiro com a <span className="text-gradient-gold">OX CA$H</span>
+              </h2>
+              
+              <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed px-4">
+                Com <span className="text-gradient-gold font-bold">27 anos de experiência</span>, somos especialistas 
+                em criar oportunidades de investimento seguras e rentáveis. 
+                <span className="text-yellow-400 font-semibold"> Sua confiança é nossa prioridade.</span>
+              </p>
+              
+              <WhatsAppCTA 
+                text="COMEÇAR AGORA"
+                className="text-lg sm:text-xl md:text-2xl px-10 sm:px-16 md:px-20 py-4 sm:py-5 rounded-2xl font-black shadow-2xl hover:shadow-orange-500/25 border-2 border-orange-400/50 relative overflow-hidden group"
+              />
+              
+            </div>
           </div>
         </section>
       </div>

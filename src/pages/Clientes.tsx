@@ -100,20 +100,14 @@ const Clientes = () => {
     <div className="min-h-screen bg-gradient-hero">
       <Header />
       
-      <div className="pt-16 pb-16 px-4">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 px-4">
         <div className="container mx-auto max-w-7xl">
           {/* Header Section */}
           <div className="text-center mb-12">
             
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
-              Clientes que <span className="text-gradient-gold">confiam</span> na OX CA$H
+              Eles <span className="text-gradient-gold">confiam</span> na OX CA$H
             </h1>
-            
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-              Com mais de <strong className="text-gradient-gold">27 anos de experiência</strong>, 
-              conquistamos a confiança de grandes empresas e marcas reconhecidas no mercado. 
-              Conheça alguns dos nossos <strong className="text-white">principais parceiros</strong>.
-            </p>
 
             {/* Estatísticas */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
@@ -144,7 +138,7 @@ const Clientes = () => {
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Somos representantes oficiais das principais empresas de consórcios e veículos do país, 
-                oferecendo as melhores condições e oportunidades de investimento para nossos clientes.
+                oferecendo incríveis oportunidades para nossos clientes.
               </p>
             </div>
 
@@ -219,59 +213,14 @@ const Clientes = () => {
             ))}
           </div>
 
-          {/* Seção de Destaque - Principais Parcerias */}
-          <div className="bg-gradient-card border border-border rounded-2xl p-8 md:p-12 mb-16">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                Principais <span className="text-gradient-gold">Parcerias</span>
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Destacamos algumas de nossas parcerias mais estratégicas que nos permitem 
-                oferecer as melhores oportunidades de investimento.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-gold/20 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-gradient-gold/30 transition-colors">
-                  <span className="text-3xl">🏦</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2 text-gradient-gold">Instituições Financeiras</h3>
-                <p className="text-muted-foreground text-sm">
-                  Parcerias sólidas com bancos e financeiras para oferecer as melhores condições de crédito.
-                </p>
-              </div>
-
-              <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-gold/20 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-gradient-gold/30 transition-colors">
-                  <span className="text-3xl">🏪</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2 text-gradient-gold">Varejo e Comércio</h3>
-                <p className="text-muted-foreground text-sm">
-                  Relacionamento próximo com grandes redes varejistas e empresas do setor comercial.
-                </p>
-              </div>
-
-              <div className="text-center group">
-                <div className="w-20 h-20 bg-gradient-gold/20 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-gradient-gold/30 transition-colors">
-                  <span className="text-3xl">🏗️</span>
-                </div>
-                <h3 className="font-bold text-lg mb-2 text-gradient-gold">Construção e Serviços</h3>
-                <p className="text-muted-foreground text-sm">
-                  Apoio a empresas de construção e prestação de serviços com soluções financeiras personalizadas.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* CTA Final */}
           <div className="text-center">
             <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-border rounded-2xl p-8 md:p-12">
               <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Quer fazer parte dos nossos <span className="text-gradient-gold">parceiros</span>?
+                Faça parte do time de <span className="text-gradient-gold">parceiros</span>
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Entre em contato conosco e descubra como podemos ajudar sua empresa 
+                Descubra como podemos ajudar sua empresa 
                 a crescer com <strong className="text-white">soluções financeiras inteligentes</strong>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -284,14 +233,7 @@ const Clientes = () => {
                   }}
                   className="bg-gradient-gold hover:bg-gold/90 text-black font-bold text-lg px-8"
                 >
-                  📱 FALAR COM ESPECIALISTA
-                </Button>
-                <Button 
-                  variant="outline"
-                  onClick={() => navigate('/')}
-                  className="text-white border-white hover:bg-white hover:text-primary text-lg px-8"
-                >
-                  🏠 VOLTAR AO INÍCIO
+                  FALAR COM ESPECIALISTA
                 </Button>
               </div>
             </div>
