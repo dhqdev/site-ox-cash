@@ -524,6 +524,16 @@
     cursor: pointer;
   }
   
+  /* Desabilitar todos os efeitos de movimento no mobile */
+  .pc-card:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .pc-card {
+    transform: none !important;
+  }
+  
   /* Desabilitar hover no mobile completamente */
   .pc-card:hover .pc-quote-overlay {
     opacity: 0 !important;
@@ -536,9 +546,9 @@
     transform: translateY(0) !important;
   }
   
-  /* Feedback visual no toque */
+  /* Feedback visual no toque mais sutil */
   .pc-card-wrapper:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
     transition: transform 0.1s ease;
   }
 }

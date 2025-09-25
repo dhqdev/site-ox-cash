@@ -44,15 +44,19 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     
     e.preventDefault();
     e.stopPropagation();
+    // No mobile: primeiro clique mostra, segundo clique esconde
     setShowQuoteOnMobile(prev => !prev);
   }, []);
 
-  // Efeitos de movimento do card
+  // Efeitos de movimento do card (apenas desktop)
   useEffect(() => {
     const card = cardRef.current;
     const wrap = wrapRef.current;
 
     if (!card || !wrap) return;
+    
+    // Não aplicar efeitos de movimento no mobile
+    if (isMobile()) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       // Verificar se o clique foi em um botão

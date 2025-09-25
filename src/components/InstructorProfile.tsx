@@ -19,7 +19,7 @@ const InstructorProfile = () => {
           Conheça nossos <span className="text-gradient-gold">Fundadores</span>
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-          Os especialistas por trás da OX CA$H. Clique nos cards para interagir e entre em contato diretamente pelo WhatsApp.
+          Os especialistas por trás da OX CA$H. Passe o mouse sobre os cards (Desktop) ou toque nas fotos (Mobile) para ver suas mensagens.
         </p>
       </div>
       
