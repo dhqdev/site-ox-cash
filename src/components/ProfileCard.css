@@ -810,10 +810,12 @@
   flex-direction: column;
   z-index: 999;
   position: relative;
+  touch-action: manipulation; /* Melhora resposta ao toque no mobile */
 }
 
 .pc-buttons-container * {
   pointer-events: auto !important;
+  touch-action: manipulation; /* Melhora resposta ao toque no mobile */
 }
 
 /* WhatsApp Button */
@@ -835,6 +837,8 @@
   min-height: 32px;
   z-index: 999;
   position: relative;
+  touch-action: manipulation; /* Melhora resposta ao toque */
+  -webkit-tap-highlight-color: transparent; /* Remove destaque azul no iOS */
 }
 
 .pc-whatsapp-btn:hover {
@@ -867,6 +871,8 @@
   min-height: 32px;
   z-index: 999;
   position: relative;
+  touch-action: manipulation; /* Melhora resposta ao toque */
+  -webkit-tap-highlight-color: transparent; /* Remove destaque azul no iOS */
 }
 
 .pc-instagram-btn:hover {

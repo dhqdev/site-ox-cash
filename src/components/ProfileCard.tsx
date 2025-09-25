@@ -153,55 +153,49 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
   // Função para abrir WhatsApp
   const handleWhatsAppClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+    console.log('WhatsApp button clicked!', { isMobile: isMobileDevice, eventType: e.type });
     
-    console.log('WhatsApp button clicked!'); // Debug log
+    // Não prevenir o comportamento padrão no mobile para permitir navegação
+    if (!isMobileDevice) {
+      e.preventDefault();
+    }
+    e.stopPropagation();
     
     const phoneNumber = "5519983673940";
     const message = `Olá! Vi o perfil do ${name} no site da OX CA$H e gostaria de conversar sobre consórcios. Podemos marcar uma conversa?`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
-    // Tentar diferentes métodos para abrir o link no mobile
-    try {
-      // Método 1: window.open
-      const newWindow = window.open(whatsappUrl, '_blank');
-      
-      // Método 2: fallback para mobile se window.open falhar
-      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-        window.location.href = whatsappUrl;
-      }
-    } catch (error) {
-      console.error('Erro ao abrir WhatsApp:', error);
-      // Método 3: fallback final
-      window.location.href = whatsappUrl;
+    // Método específico para mobile
+    if (isMobileDevice) {
+      // Usar location.assign que funciona melhor no mobile
+      window.location.assign(whatsappUrl);
+    } else {
+      // Desktop: usar window.open
+      window.open(whatsappUrl, '_blank');
     }
-  }, [name]);
+  }, [name, isMobileDevice]);
 
   // Função para abrir Instagram
   const handleInstagramClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+    console.log('Instagram button clicked!', { isMobile: isMobileDevice, eventType: e.type });
     
-    console.log('Instagram button clicked!'); // Debug log
+    // Não prevenir o comportamento padrão no mobile para permitir navegação
+    if (!isMobileDevice) {
+      e.preventDefault();
+    }
+    e.stopPropagation();
     
     const instagramUrl = "https://www.instagram.com/oxcash?igsh=MTRqNWc3ZTZ6dGFxag==";
     
-    // Tentar diferentes métodos para abrir o link no mobile
-    try {
-      // Método 1: window.open
-      const newWindow = window.open(instagramUrl, '_blank', 'noopener,noreferrer');
-      
-      // Método 2: fallback para mobile se window.open falhar
-      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-        window.location.href = instagramUrl;
-      }
-    } catch (error) {
-      console.error('Erro ao abrir Instagram:', error);
-      // Método 3: fallback final
-      window.location.href = instagramUrl;
+    // Método específico para mobile
+    if (isMobileDevice) {
+      // Usar location.assign que funciona melhor no mobile
+      window.location.assign(instagramUrl);
+    } else {
+      // Desktop: usar window.open
+      window.open(instagramUrl, '_blank', 'noopener,noreferrer');
     }
-  }, []);
+  }, [isMobileDevice]);
 
   // Efeitos de movimento do card (apenas desktop)
   useEffect(() => {
@@ -293,8 +287,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-whatsapp-btn"
                   onClick={handleWhatsAppClick}
-                  onTouchEnd={handleWhatsAppClick}
                   aria-label="Conversar no WhatsApp"
+                  style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                 >
                   <MessageCircle size={14} />
                   WhatsApp
@@ -302,8 +296,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-instagram-btn"
                   onClick={handleInstagramClick}
-                  onTouchEnd={handleInstagramClick}
                   aria-label="Seguir no Instagram"
+                  style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                 >
                   <Instagram size={14} />
                   Instagram
