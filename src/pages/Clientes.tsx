@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import CircularGallery from "@/components/CircularGallery";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // Import dos logos
 import logoCato from "@/assets/logo-cato.png";
@@ -22,6 +24,20 @@ import logoEmbracon from "@/assets/logo-embracon.png";
 
 const Clientes = () => {
   const navigate = useNavigate();
+  
+  // Hook para detectar tamanho da tela
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   // Representações da OX CA$H
   const representacoes = [
@@ -50,50 +66,62 @@ const Clientes = () => {
   // Logos dos clientes baseados nas imagens fornecidas
   const clientes = [
     {
-      nome: "Supermercados Boa",
       categoria: "Varejo",
       logo: logoBoa,
     },
     {
-      nome: "Supermercados São Vicente",
       categoria: "Varejo",
       logo: logoSaoVicente,
     },
     {
-      nome: "Cato Supermercados",
       categoria: "Varejo",
       logo: logoCato,
     },
     {
-      nome: "Império",
       categoria: "Alimentação",
       logo: logoImperio,
     },
     {
-      nome: "Estação Vegana",
       categoria: "Alimentação",
       logo: logoEstacaoVegana,
     },
     {
-      nome: "Instituto Crescer",
       categoria: "Educação",
       logo: logoCrescer,
     },
     {
-      nome: "Jundaquece",
       categoria: "Serviços",
       logo: logoJundaquece,
     },
     {
-      nome: "Supermercado Gazellato",
       categoria: "Varejo",
       logo: logoGazellato,
     },
     {
-      nome: "Tulipa Pré-Fabricados",
       categoria: "Construção",
       logo: logoTulipa,
     }
+  ];
+
+  // Dados preparados para o CircularGallery com imagens maiores
+  const clientesGallery = [
+    { image: logoBoa, text: "" },
+    { image: logoSaoVicente, text: "" },
+    { image: logoCato, text: "" },
+    { image: logoImperio, text: "" },
+    { image: logoEstacaoVegana, text: "" },
+    { image: logoCrescer, text: "" },
+    { image: logoJundaquece, text: "" },
+    { image: logoGazellato, text: "" },
+    { image: logoTulipa, text: "" }
+  ];
+
+  // Dados das representações para o CircularGallery
+  const representacoesGallery = [
+    { image: logoRodobens, text: "" },
+    { image: logoYamaha, text: "" },
+    { image: logoServopa, text: "" },
+    { image: logoEmbracon, text: "" }
   ];
 
   return (
@@ -130,87 +158,71 @@ const Clientes = () => {
             </div>
           </div>
 
-          {/* Seção Nossas Representações */}
+          {/* Seção Nossas Representações com CircularGallery */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-6">
                 Nossas <span className="text-gradient-gold">Representações</span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
                 Somos representantes oficiais das principais empresas de consórcios e veículos do país, 
                 oferecendo incríveis oportunidades para nossos clientes.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {representacoes.map((representacao, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:scale-110 hover:bg-white/10 transition-all duration-500 group cursor-pointer shadow-xl"
-                >
-                  <div className="text-center">
-                    {/* Logo da representação */}
-                    <div className="w-20 h-20 bg-white/90 rounded-2xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white transition-all duration-300 shadow-lg overflow-hidden">
-                      <img 
-                        src={representacao.logo} 
-                        alt={`Logo ${representacao.nome}`}
-                        className="w-16 h-16 object-contain"
-                      />
-                    </div>
-                    
-                    <h3 className="font-bold text-white text-base mb-2 leading-tight">
-                      {representacao.nome}
-                    </h3>
-                    
-                    <div className="inline-block bg-gradient-gold/30 px-3 py-1 rounded-full">
-                      <span className="text-xs text-gold font-semibold">{representacao.categoria}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            {/* CircularGallery com as representações */}
+            <div 
+              style={{ 
+                height: isMobile ? '500px' : '500px', 
+                position: 'relative' 
+              }} 
+              className="mb-8"
+            >
+              <CircularGallery 
+                items={representacoesGallery}
+                bend={isMobile ? 1.2 : 2.5} 
+                textColor="#fbbf24" 
+                borderRadius={0.1}
+                scrollEase={0.03}
+                font={isMobile ? "bold 14px Inter, sans-serif" : "bold 20px Inter, sans-serif"}
+                scrollSpeed={isMobile ? 0.8 : 1.2}
+              />
+            </div>
+
+            <div className="text-center">
             </div>
           </div>
 
-          {/* Seção Nossos Clientes */}
+          {/* Seção Nossos Clientes com CircularGallery */}
           <div className="mb-16">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl font-bold mb-6">
-                Nossos <span className="text-gradient-gold">Clientes</span>
+                Alguns de nossos <span className="text-gradient-gold">Clientes</span>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
                 Conheça as empresas que escolheram a OX CA$H como parceira estratégica 
                 para suas necessidades financeiras e de investimento.
               </p>
             </div>
-          </div>
 
-          {/* Grid de Logos dos Clientes */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-16">
-            {clientes.map((cliente, index) => (
-              <div 
-                key={index}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:scale-105 hover:bg-white/20 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="text-center">
-                  {/* Logo da empresa */}
-                  <div className="w-24 h-24 bg-white/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-white/30 transition-colors overflow-hidden">
-                    <img 
-                      src={cliente.logo} 
-                      alt={`Logo ${cliente.nome}`}
-                      className="w-20 h-20 object-contain"
-                    />
-                  </div>
-                  
-                  <h3 className="font-bold text-white text-sm mb-2 leading-tight">
-                    {cliente.nome}
-                  </h3>
-                  
-                  <div className="inline-block bg-gradient-gold/20 px-2 py-1 rounded-full mb-2">
-                    <span className="text-xs text-gold font-medium">{cliente.categoria}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {/* CircularGallery com os logos dos clientes */}
+            <div 
+              style={{ 
+                height: isMobile ? '550px' : '600px', 
+                position: 'relative' 
+              }} 
+              className="mb-8 sm:mb-8 md:mb-8"
+            >
+              <CircularGallery 
+                items={clientesGallery}
+                bend={isMobile ? 1.5 : 3} 
+                textColor="#fbbf24" 
+                borderRadius={0.1}
+                scrollEase={0.02}
+                font={isMobile ? "bold 16px Inter, sans-serif" : "bold 24px Inter, sans-serif"}
+                scrollSpeed={isMobile ? 1.0 : 1.5}
+              />
+            </div>
           </div>
 
           {/* CTA Final */}

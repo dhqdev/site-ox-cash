@@ -155,6 +155,18 @@ const CardNav: React.FC<CardNavProps> = ({
     if (el) cardsRef.current[i] = el;
   };
 
+  const handleLogoClick = () => {
+    navigate('/');
+    // Fechar o menu se estiver aberto
+    if (isExpanded) {
+      setIsHamburgerOpen(false);
+      if (tlRef.current) {
+        tlRef.current.eventCallback('onReverseComplete', () => setIsExpanded(false));
+        tlRef.current.reverse();
+      }
+    }
+  };
+
   const handleCardClick = (route: string) => {
     navigate(route);
     // Fechar o menu após navegação
@@ -195,15 +207,15 @@ const CardNav: React.FC<CardNavProps> = ({
             <div className="hamburger-line" />
           </div>
 
-          <div className="logo-container">
+          <div className="logo-container" onClick={handleLogoClick}>
             {/* Logo vazio no centro para mobile, oculto no desktop */}
-            <span className="text-2xl mobile-logo">🏦</span>
+            <span className="text-2xl mobile-logo cursor-pointer">🏦</span>
           </div>
 
-          <div className="card-nav-badge">
+          <div className="card-nav-badge" onClick={handleLogoClick}>
             <div className="flex items-center gap-2">
               <span className="text-xl font-black text-gradient-gold">OX CA$H</span>
-              <span className="text-2xl desktop-logo">🏦</span>
+              <span className="text-2xl desktop-logo cursor-pointer">🏦</span>
             </div>
           </div>
         </div>
