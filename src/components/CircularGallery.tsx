@@ -565,7 +565,9 @@ class App {
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
     const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const isMobile = this.screen.width < 768;
+    const multiplier = isMobile ? 0.05 : 0.025; // Dobra a sensibilidade no mobile
+    const distance = (this.start - x) * (this.scrollSpeed * multiplier);
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
 

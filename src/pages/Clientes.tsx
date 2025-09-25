@@ -183,9 +183,9 @@ const Clientes = () => {
                 bend={isMobile ? 1.2 : 2.5} 
                 textColor="#fbbf24" 
                 borderRadius={0.1}
-                scrollEase={0.03}
+                scrollEase={isMobile ? 0.08 : 0.03}
                 font={isMobile ? "bold 14px Inter, sans-serif" : "bold 20px Inter, sans-serif"}
-                scrollSpeed={isMobile ? 0.8 : 1.2}
+                scrollSpeed={isMobile ? 2.5 : 1.2}
               />
             </div>
 
@@ -218,9 +218,9 @@ const Clientes = () => {
                 bend={isMobile ? 1.5 : 3} 
                 textColor="#fbbf24" 
                 borderRadius={0.1}
-                scrollEase={0.02}
+                scrollEase={isMobile ? 0.08 : 0.02}
                 font={isMobile ? "bold 16px Inter, sans-serif" : "bold 24px Inter, sans-serif"}
-                scrollSpeed={isMobile ? 1.0 : 1.5}
+                scrollSpeed={isMobile ? 3.0 : 1.5}
               />
             </div>
           </div>
