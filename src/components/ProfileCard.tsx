@@ -25,14 +25,53 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const [showQuoteOnMobile, setShowQuoteOnMobile] = useState(false);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
 
-  // Função para detectar se é mobile
-  const isMobile = () => window.innerWidth <= 768;
+  // Função para detectar se é mobile - agora com verificação mais robusta
+  const checkIsMobile = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      // Verificar largura da tela E se tem touch
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth <= 768;
+      return isSmallScreen || hasTouch;
+    }
+    return false;
+  }, []);
 
-  // Função para alternar a frase no mobile
+  // Configurar detecção de mobile no client
+  useEffect(() => {
+    const updateMobileStatus = () => {
+      setIsMobileDevice(checkIsMobile());
+    };
+    
+    updateMobileStatus();
+    window.addEventListener('resize', updateMobileStatus);
+    
+    return () => {
+      window.removeEventListener('resize', updateMobileStatus);
+    };
+  }, [checkIsMobile]);
+
+  // Fechar quote no mobile quando clicar fora
+  useEffect(() => {
+    if (!isMobileDevice || !showQuoteOnMobile) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(event.target as Node)) {
+        setShowQuoteOnMobile(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileDevice, showQuoteOnMobile]);
+
+  // Função para alternar a frase no mobile - suporte tanto click quanto touch
   const handleMobileClick = useCallback((e: React.MouseEvent) => {
     // Só funciona no mobile
-    if (!isMobile()) return;
+    if (!isMobileDevice) return;
     
     // Evitar clique nos botões
     const target = e.target as HTMLElement;
@@ -46,17 +85,33 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     e.stopPropagation();
     // No mobile: primeiro clique mostra, segundo clique esconde
     setShowQuoteOnMobile(prev => !prev);
-  }, []);
+  }, [isMobileDevice]);
+
+  // Função para touch events
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    // Só funciona no mobile
+    if (!isMobileDevice) return;
+    
+    // Evitar clique nos botões
+    const target = e.target as HTMLElement;
+    if (target.closest('.pc-whatsapp-btn') || 
+        target.closest('.pc-instagram-btn') || 
+        target.closest('.pc-user-info')) {
+      return;
+    }
+    
+    e.preventDefault();
+    e.stopPropagation();
+    // No mobile: primeiro toque mostra, segundo toque esconde
+    setShowQuoteOnMobile(prev => !prev);
+  }, [isMobileDevice]);
 
   // Efeitos de movimento do card (apenas desktop)
   useEffect(() => {
     const card = cardRef.current;
     const wrap = wrapRef.current;
 
-    if (!card || !wrap) return;
-    
-    // Não aplicar efeitos de movimento no mobile
-    if (isMobile()) return;
+    if (!card || !wrap || isMobileDevice) return;
 
     const handleMouseMove = (e: MouseEvent) => {
       // Verificar se o clique foi em um botão
@@ -126,14 +181,15 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         btn.removeEventListener('mousemove', preventPropagation);
       });
     };
-  }, []);
+  }, [isMobileDevice]);
 
   return (
     <div 
       ref={wrapRef} 
       className="pc-card-wrapper"
       onClick={handleMobileClick}
-      style={{ cursor: isMobile() ? 'pointer' : 'default' }}
+      onTouchStart={handleTouchStart}
+      style={{ cursor: isMobileDevice ? 'pointer' : 'default' }}
     >
       <section ref={cardRef} className="pc-card">
         <div className="pc-inside">

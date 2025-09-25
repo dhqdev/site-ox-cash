@@ -521,7 +521,7 @@
 @media (max-width: 768px) {
   /* Indicador visual sutil que é clicável no mobile */
   .pc-card-wrapper {
-    cursor: pointer;
+    cursor: pointer !important;
   }
   
   /* Desabilitar todos os efeitos de movimento no mobile */
@@ -534,7 +534,7 @@
     transform: none !important;
   }
   
-  /* Desabilitar hover no mobile completamente */
+  /* IMPORTANTE: Desabilitar hover no mobile completamente */
   .pc-card:hover .pc-quote-overlay {
     opacity: 0 !important;
     transform: translateY(-20px) !important;
@@ -544,6 +544,12 @@
   .pc-quote-overlay.pc-show-mobile {
     opacity: 1 !important;
     transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Garantir que o overlay mobile funcione */
+  .pc-quote-overlay {
+    pointer-events: none;
   }
   
   /* Feedback visual no toque mais sutil */
