@@ -54,7 +54,7 @@ const Index = () => {
         <Header />
         
         {/* Hero Section */}
-        <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4">
+        <section className="pt-24 sm:pt-28 md:pt-32 pb-2 sm:pb-4 md:pb-6 px-4">
           <div className="container mx-auto max-w-6xl">
             <Logo />
             
@@ -90,12 +90,12 @@ const Index = () => {
                 </div>
               </div>
               {/* Vídeo do YouTube */}
-              <div className="mt-12 sm:mt-16">
+              <div className="mt-4 sm:mt-6">
                 <VideoSection />
               </div>
             </div>
             
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-4 sm:mt-6">
               <div className="max-w-2xl">
                 <CompanyInfo />
               </div>
@@ -103,7 +103,7 @@ const Index = () => {
           </div>
         </section>
 
-        <div className="container mx-auto max-w-6xl px-4">
+        <div className="container mx-auto max-w-6xl px-4 -mt-12 sm:-mt-16">
           <OurHistory />
           
           <WhatYouWillLearn />
