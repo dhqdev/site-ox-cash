@@ -9,7 +9,7 @@ import LeadCapture from "@/components/LeadCapture";
 import LocationMap from "@/components/LocationMap";
 import OurHistory from "@/components/OurHistory";
 import WhatsAppCTA from "@/components/WhatsAppCTA";
-import BubbleMenu from "@/components/BubbleMenu";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -125,8 +125,8 @@ const Index = () => {
         </section>
       </div>
       
-      {/* Menu de redes sociais */}
-      <BubbleMenu />
+      {/* WhatsApp flutuante */}
+      <WhatsAppFloat />
     </div>
   );
 };

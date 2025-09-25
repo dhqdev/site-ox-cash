@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
-import { MessageCircle, Instagram } from 'lucide-react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import './ProfileCard.css';
 
 interface ProfileCardProps {
@@ -27,12 +26,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
   const [showQuoteOnMobile, setShowQuoteOnMobile] = useState(false);
   const [isMobileDevice, setIsMobileDevice] = useState(false);
-  const [isInView, setIsInView] = useState(false);
 
-  // Função para detectar se é mobile - agora com verificação mais robusta
+  // Função para detectar se é mobile
   const checkIsMobile = useCallback(() => {
     if (typeof window !== 'undefined') {
-      // Verificar largura da tela E se tem touch
       const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
       const isSmallScreen = window.innerWidth <= 768;
       return isSmallScreen || hasTouch;
@@ -54,203 +51,17 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     };
   }, [checkIsMobile]);
 
-  // Intersection Observer para detectar quando o card está visível (apenas mobile)
-  useEffect(() => {
-    if (!isMobileDevice || !wrapRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-            // Mostrar a frase automaticamente quando entra na viewport
-            setTimeout(() => {
-              setShowQuoteOnMobile(true);
-            }, 300); // Pequeno delay para suavizar a animação
-          } else {
-            setIsInView(false);
-            // Esconder a frase quando sai da viewport
-            setShowQuoteOnMobile(false);
-          }
-        });
-      },
-      {
-        threshold: 0.6, // Mostrar quando 60% do card está visível
-        rootMargin: '-50px' // Margem para ajustar quando dispara
-      }
-    );
-
-    observer.observe(wrapRef.current);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [isMobileDevice]);
-
-  // Fechar quote no mobile quando clicar fora
-  useEffect(() => {
-    if (!isMobileDevice || !showQuoteOnMobile) return;
-
-    const handleClickOutside = (event: MouseEvent) => {
-      if (wrapRef.current && !wrapRef.current.contains(event.target as Node)) {
-        setShowQuoteOnMobile(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isMobileDevice, showQuoteOnMobile]);
-
-  // Função para alternar a frase no mobile - agora permite scroll
-  const handleMobileClick = useCallback((e: React.MouseEvent) => {
-    // Só funciona no mobile
+  // Função simples para alternar a frase no mobile
+  const handleMobileClick = useCallback(() => {
     if (!isMobileDevice) return;
-    
-    // Evitar clique nos botões
-    const target = e.target as HTMLElement;
-    if (target.closest('.pc-whatsapp-btn') || 
-        target.closest('.pc-instagram-btn') || 
-        target.closest('.pc-user-info')) {
-      return;
-    }
-    
-    // Não prevenir o comportamento padrão para permitir scroll
-    e.stopPropagation();
-    
-    // Se a frase está visível, esconder. Se não está, mostrar (fallback)
-    if (showQuoteOnMobile) {
-      setShowQuoteOnMobile(false);
-    } else {
-      setShowQuoteOnMobile(true);
-    }
+    setShowQuoteOnMobile(!showQuoteOnMobile);
   }, [isMobileDevice, showQuoteOnMobile]);
-
-  // Função para touch events - agora permite scroll
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    // Só funciona no mobile
-    if (!isMobileDevice) return;
-    
-    // Evitar clique nos botões
-    const target = e.target as HTMLElement;
-    if (target.closest('.pc-whatsapp-btn') || 
-        target.closest('.pc-instagram-btn') || 
-        target.closest('.pc-user-info')) {
-      return;
-    }
-    
-    // Não prevenir o comportamento padrão para permitir scroll
-    e.stopPropagation();
-    
-    // Se a frase está visível, esconder. Se não está, mostrar (fallback)
-    if (showQuoteOnMobile) {
-      setShowQuoteOnMobile(false);
-    } else {
-      setShowQuoteOnMobile(true);
-    }
-  }, [isMobileDevice, showQuoteOnMobile]);
-
-  // Função para abrir WhatsApp
-  const handleWhatsAppClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    console.log('WhatsApp button clicked!', { isMobile: isMobileDevice, eventType: e.type });
-    
-    // Não prevenir o comportamento padrão no mobile para permitir navegação
-    if (!isMobileDevice) {
-      e.preventDefault();
-    }
-    e.stopPropagation();
-    
-    const phoneNumber = "5519983673940";
-    const message = `Olá! Vi o perfil do ${name} no site da OX CA$H e gostaria de conversar sobre consórcios. Podemos marcar uma conversa?`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    
-    // Método específico para mobile
-    if (isMobileDevice) {
-      // Usar location.assign que funciona melhor no mobile
-      window.location.assign(whatsappUrl);
-    } else {
-      // Desktop: usar window.open
-      window.open(whatsappUrl, '_blank');
-    }
-  }, [name, isMobileDevice]);
-
-  // Função para abrir Instagram
-  const handleInstagramClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    console.log('Instagram button clicked!', { isMobile: isMobileDevice, eventType: e.type });
-    
-    // Não prevenir o comportamento padrão no mobile para permitir navegação
-    if (!isMobileDevice) {
-      e.preventDefault();
-    }
-    e.stopPropagation();
-    
-    const instagramUrl = "https://www.instagram.com/oxcash?igsh=MTRqNWc3ZTZ6dGFxag==";
-    
-    // Método específico para mobile
-    if (isMobileDevice) {
-      // Usar location.assign que funciona melhor no mobile
-      window.location.assign(instagramUrl);
-    } else {
-      // Desktop: usar window.open
-      window.open(instagramUrl, '_blank', 'noopener,noreferrer');
-    }
-  }, [isMobileDevice]);
-
-  // Efeitos de movimento do card (apenas desktop)
-  useEffect(() => {
-    const card = cardRef.current;
-    const wrap = wrapRef.current;
-
-    if (!card || !wrap || isMobileDevice) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      // Verificar se o clique foi em um botão
-      const target = e.target as HTMLElement;
-      if (target.closest('.pc-whatsapp-btn') || target.closest('.pc-instagram-btn')) {
-        return; // Não aplicar efeito se for nos botões
-      }
-      
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-      card.style.transition = 'transform 0.1s ease-out';
-    };
-
-    const handleMouseEnter = () => {
-      card.style.transition = 'transform 0.3s ease-out';
-    };
-
-    const handleMouseLeave = () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      card.style.transition = 'transform 0.5s ease-out';
-    };
-
-    card.addEventListener('mousemove', handleMouseMove);
-    card.addEventListener('mouseenter', handleMouseEnter);
-    card.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      card.removeEventListener('mousemove', handleMouseMove);
-      card.removeEventListener('mouseenter', handleMouseEnter);
-      card.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, [isMobileDevice]);
 
   return (
     <div 
       ref={wrapRef} 
       className="pc-card-wrapper"
       onClick={handleMobileClick}
-      onTouchStart={handleTouchStart}
       style={{ cursor: isMobileDevice ? 'pointer' : 'default' }}
     >
       <section ref={cardRef} className="pc-card">
@@ -281,33 +92,9 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                   <div className="pc-title-main">{title}</div>
                 </div>
               </div>
-              
-              {/* Botões de ação */}
-              <div className="pc-buttons-container">
-                <button 
-                  className="pc-whatsapp-btn"
-                  onClick={handleWhatsAppClick}
-                  onTouchStart={handleWhatsAppClick}
-                  aria-label="Conversar no WhatsApp"
-                  style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
-                >
-                  <MessageCircle size={14} />
-                  WhatsApp
-                </button>
-                <button 
-                  className="pc-instagram-btn"
-                  onClick={handleInstagramClick}
-                  onTouchStart={handleInstagramClick}
-                  aria-label="Seguir no Instagram"
-                  style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
-                >
-                  <Instagram size={14} />
-                  Instagram
-                </button>
-              </div>
             </div>
           </div>
-          {/* Overlay com a frase - aparece no hover (desktop) e automaticamente no scroll (mobile) */}
+          {/* Overlay com a frase - aparece no hover (desktop) ou clique (mobile) */}
           {quote && (
             <div className={`pc-quote-overlay ${showQuoteOnMobile ? 'pc-show-mobile' : ''}`}>
               <div className="pc-quote-content">
