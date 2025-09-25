@@ -152,24 +152,55 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   }, [isMobileDevice, showQuoteOnMobile]);
 
   // Função para abrir WhatsApp
-  const handleWhatsAppClick = useCallback((e: React.MouseEvent) => {
+  const handleWhatsAppClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    
+    console.log('WhatsApp button clicked!'); // Debug log
     
     const phoneNumber = "5519983673940";
     const message = `Olá! Vi o perfil do ${name} no site da OX CA$H e gostaria de conversar sobre consórcios. Podemos marcar uma conversa?`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    
+    // Tentar diferentes métodos para abrir o link no mobile
+    try {
+      // Método 1: window.open
+      const newWindow = window.open(whatsappUrl, '_blank');
+      
+      // Método 2: fallback para mobile se window.open falhar
+      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+    } catch (error) {
+      console.error('Erro ao abrir WhatsApp:', error);
+      // Método 3: fallback final
+      window.location.href = whatsappUrl;
+    }
   }, [name]);
 
   // Função para abrir Instagram
-  const handleInstagramClick = useCallback((e: React.MouseEvent) => {
+  const handleInstagramClick = useCallback((e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
-    // Usar a URL correta do Instagram da OX CA$H
+    console.log('Instagram button clicked!'); // Debug log
+    
     const instagramUrl = "https://www.instagram.com/oxcash?igsh=MTRqNWc3ZTZ6dGFxag==";
-    window.open(instagramUrl, '_blank', 'noopener,noreferrer');
+    
+    // Tentar diferentes métodos para abrir o link no mobile
+    try {
+      // Método 1: window.open
+      const newWindow = window.open(instagramUrl, '_blank', 'noopener,noreferrer');
+      
+      // Método 2: fallback para mobile se window.open falhar
+      if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+        window.location.href = instagramUrl;
+      }
+    } catch (error) {
+      console.error('Erro ao abrir Instagram:', error);
+      // Método 3: fallback final
+      window.location.href = instagramUrl;
+    }
   }, []);
 
   // Efeitos de movimento do card (apenas desktop)
@@ -209,43 +240,14 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       card.style.transition = 'transform 0.5s ease-out';
     };
 
-    // Prevenir propagação nos botões
-    const preventPropagation = (e: Event) => {
-      e.stopPropagation();
-    };
-
     card.addEventListener('mousemove', handleMouseMove);
     card.addEventListener('mouseenter', handleMouseEnter);
     card.addEventListener('mouseleave', handleMouseLeave);
-
-    // Adicionar event listeners nos botões para prevenir propagação
-    const whatsappButtons = card.querySelectorAll('.pc-whatsapp-btn');
-    const instagramButtons = card.querySelectorAll('.pc-instagram-btn');
-    
-    whatsappButtons.forEach(btn => {
-      btn.addEventListener('click', preventPropagation);
-      btn.addEventListener('mousemove', preventPropagation);
-    });
-    
-    instagramButtons.forEach(btn => {
-      btn.addEventListener('click', preventPropagation);
-      btn.addEventListener('mousemove', preventPropagation);
-    });
 
     return () => {
       card.removeEventListener('mousemove', handleMouseMove);
       card.removeEventListener('mouseenter', handleMouseEnter);
       card.removeEventListener('mouseleave', handleMouseLeave);
-      
-      whatsappButtons.forEach(btn => {
-        btn.removeEventListener('click', preventPropagation);
-        btn.removeEventListener('mousemove', preventPropagation);
-      });
-      
-      instagramButtons.forEach(btn => {
-        btn.removeEventListener('click', preventPropagation);
-        btn.removeEventListener('mousemove', preventPropagation);
-      });
     };
   }, [isMobileDevice]);
 
@@ -291,6 +293,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-whatsapp-btn"
                   onClick={handleWhatsAppClick}
+                  onTouchEnd={handleWhatsAppClick}
                   aria-label="Conversar no WhatsApp"
                 >
                   <MessageCircle size={14} />
@@ -299,6 +302,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-instagram-btn"
                   onClick={handleInstagramClick}
+                  onTouchEnd={handleInstagramClick}
                   aria-label="Seguir no Instagram"
                 >
                   <Instagram size={14} />
