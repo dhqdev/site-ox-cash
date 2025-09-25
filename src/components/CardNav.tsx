@@ -196,13 +196,14 @@ const CardNav: React.FC<CardNavProps> = ({
           </div>
 
           <div className="logo-container">
-            {/* Logo vazio no centro */}
-            <span className="text-2xl">🏦</span>
+            {/* Logo vazio no centro para mobile, oculto no desktop */}
+            <span className="text-2xl mobile-logo">🏦</span>
           </div>
 
           <div className="card-nav-badge">
             <div className="flex items-center gap-2">
               <span className="text-xl font-black text-gradient-gold">OX CA$H</span>
+              <span className="text-2xl desktop-logo">🏦</span>
             </div>
           </div>
         </div>

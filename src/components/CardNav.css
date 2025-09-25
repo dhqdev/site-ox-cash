@@ -159,9 +159,17 @@
   display: none;
 }
 
-.card-nav-badge::after {
-  content: "🏦";
+.card-nav-badge .desktop-logo {
+  display: inline;
   font-size: 1.3rem;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+.card-nav-badge::after {
+  content: "";
 }
 
 .card-nav-badge:hover {
@@ -375,6 +383,14 @@
   }
 
   .card-nav-badge {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: inline;
+  }
+
+  .desktop-logo {
     display: none;
   }
 
