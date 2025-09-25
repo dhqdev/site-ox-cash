@@ -102,11 +102,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                   <strong>"{quote}"</strong>
                 </p>
                 {/* Indicador sutil para mobile que pode ser clicado para esconder */}
-                {isMobileDevice && showQuoteOnMobile && (
-                  <div className="pc-mobile-hint">
-                    Toque para esconder
-                  </div>
-                )}
+                {isMobileDevice && showQuoteOnMobile}
               </div>
             </div>
           )}
