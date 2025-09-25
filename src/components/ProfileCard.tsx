@@ -287,6 +287,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-whatsapp-btn"
                   onClick={handleWhatsAppClick}
+                  onTouchStart={handleWhatsAppClick}
                   aria-label="Conversar no WhatsApp"
                   style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                 >
@@ -296,6 +297,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 <button 
                   className="pc-instagram-btn"
                   onClick={handleInstagramClick}
+                  onTouchStart={handleInstagramClick}
                   aria-label="Seguir no Instagram"
                   style={{ pointerEvents: 'auto', touchAction: 'manipulation' }}
                 >
