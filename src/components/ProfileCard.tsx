@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo, useState } from 'react';
+import { MessageCircle, Instagram } from 'lucide-react';
 import './ProfileCard.css';
 
 interface ProfileCardProps {
@@ -150,6 +151,27 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
     }
   }, [isMobileDevice, showQuoteOnMobile]);
 
+  // Função para abrir WhatsApp
+  const handleWhatsAppClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const phoneNumber = "5519983673940";
+    const message = `Olá! Vi o perfil do ${name} no site da OX CA$H e gostaria de conversar sobre consórcios. Podemos marcar uma conversa?`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  }, [name]);
+
+  // Função para abrir Instagram
+  const handleInstagramClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Usar a URL correta do Instagram da OX CA$H
+    const instagramUrl = "https://www.instagram.com/oxcash?igsh=MTRqNWc3ZTZ6dGFxag==";
+    window.open(instagramUrl, '_blank', 'noopener,noreferrer');
+  }, []);
+
   // Efeitos de movimento do card (apenas desktop)
   useEffect(() => {
     const card = cardRef.current;
@@ -262,6 +284,26 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                   <div className="pc-name-main">{name}</div>
                   <div className="pc-title-main">{title}</div>
                 </div>
+              </div>
+              
+              {/* Botões de ação */}
+              <div className="pc-buttons-container">
+                <button 
+                  className="pc-whatsapp-btn"
+                  onClick={handleWhatsAppClick}
+                  aria-label="Conversar no WhatsApp"
+                >
+                  <MessageCircle size={14} />
+                  WhatsApp
+                </button>
+                <button 
+                  className="pc-instagram-btn"
+                  onClick={handleInstagramClick}
+                  aria-label="Seguir no Instagram"
+                >
+                  <Instagram size={14} />
+                  Instagram
+                </button>
               </div>
             </div>
           </div>
