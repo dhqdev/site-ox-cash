@@ -126,69 +126,6 @@ const Operacao = () => {
               </div>
             </div>
 
-            {/* Dashboard de Crédito */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Dashboard de <span className="text-gradient-gold">Operação</span>
-              </h2>
-              
-              <div className="grid lg:grid-cols-2 gap-8 mb-12">
-                {/* Divisão de Crédito */}
-                <div className="bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-md border-2 border-orange-500/40 rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-8 text-white flex items-center">
-                    <Calculator className="mr-3 text-orange-400" />
-                    Divisão de Crédito de R$ 2 Milhões
-                  </h3>
-                  
-                  <div className="space-y-6">
-                    <div className="bg-gradient-to-r from-orange-500/30 to-red-500/30 border-2 border-orange-400/50 rounded-2xl p-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xl font-bold text-white">10 Créditos/Cotas</span>
-                        <span className="text-3xl font-black text-gradient-gold">R$ 200.000</span>
-                      </div>
-                      <p className="text-gray-200 text-lg leading-relaxed">Em 10 grupos diferentes, cada um em um grupo diferente para um lance</p>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-blue-500/30 to-cyan-500/30 border-2 border-blue-400/50 rounded-2xl p-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-xl font-bold text-white">Sorteio por Lance</span>
-                        <span className="text-3xl font-bold text-blue-400">Mensal</span>
-                      </div>
-                      <p className="text-gray-200 text-lg leading-relaxed">Participando de sorteios de lance todo mês até a contemplação</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Estatísticas da Operação */}
-                <div className="bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-md border-2 border-blue-500/40 rounded-3xl p-8">
-                  <h3 className="text-2xl font-bold mb-8 text-white flex items-center">
-                    <BarChart3 className="mr-3 text-blue-400" />
-                    Operação Estruturada
-                  </h3>
-                  
-                  <div className="space-y-8">
-                    <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/40 rounded-2xl p-6 text-center">
-                      <div className="text-4xl font-black text-purple-300 mb-3">2 Milhões</div>
-                      <div className="text-lg text-gray-200 font-semibold">Crédito Acima de</div>
-                      <div className="text-sm text-gray-400 mt-2">Programação de entrega mensal</div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/40 rounded-2xl p-6 text-center">
-                      <div className="text-4xl font-black text-green-300 mb-3">2 Cotas</div>
-                      <div className="text-lg text-gray-200 font-semibold">Contempladas por Lance</div>
-                      <div className="text-sm text-gray-400 mt-2">Sorteio livre + máximo por grupos</div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-400/40 rounded-2xl p-6 text-center">
-                      <div className="text-4xl font-black text-yellow-300 mb-3">100%</div>
-                      <div className="text-lg text-gray-200 font-semibold">Aprovação da Empresa</div>
-                      <div className="text-sm text-gray-400 mt-2">Processo auditado e aprovado</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Vantagens da Operação */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold text-center mb-12">
