@@ -13,9 +13,6 @@ Bem-vindo ao **site-ox-cash**! Este repositório contém o código-fonte para o 
 - [Licença](#licença)
 - [Contato](#contato)
 ---
-
-## Sobre o Projeto
-
 ## Tecnologias Utilizadas
 
 - **Frontend:** (exemplo: React, Vue.js, HTML5, CSS3, JavaScript)
