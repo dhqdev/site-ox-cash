@@ -179,7 +179,7 @@ const LeadCapture = () => {
               <div className="space-y-2">
                 <Label htmlFor="whatsapp" className="text-white font-medium flex items-center gap-2">
                   <span className="text-gold">📱</span>
-                  WhatsApp com DDD *
+                  WhatsApp (DDD + Apenas Números)
                 </Label>
                 <Input
                   id="whatsapp"
