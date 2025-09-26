@@ -64,7 +64,8 @@ const Operacao = () => {
                 Como Funciona Nossa <span className="text-gradient-gold">Operação</span>
               </h2>
               
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* Desktop - Grid normal */}
+              <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
                 {/* Etapa 1 */}
                 <div className="relative">
                   <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-2 border-orange-500/30 rounded-3xl p-8 text-center h-full">
@@ -80,8 +81,8 @@ const Operacao = () => {
                       <p className="text-yellow-200 font-semibold text-sm">Crédito Acima de R$ 2 Milhões</p>
                     </div>
                   </div>
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-content-center">
+                  <div className="absolute top-1/2 -right-4 transform -translate-y-1/2">
+                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">→</span>
                     </div>
                   </div>
@@ -102,7 +103,7 @@ const Operacao = () => {
                       <p className="text-blue-200 font-semibold text-sm">2 Cotas por Lance Mensal</p>
                     </div>
                   </div>
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                  <div className="absolute top-1/2 -right-4 transform -translate-y-1/2">
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                       <span className="text-white font-bold">→</span>
                     </div>
@@ -110,7 +111,7 @@ const Operacao = () => {
                 </div>
 
                 {/* Etapa 3 */}
-                <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-500/30 rounded-3xl p-8 text-center">
+                <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-500/30 rounded-3xl p-8 text-center h-full">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-black text-2xl mb-6 mx-auto">
                     3
                   </div>
@@ -122,6 +123,67 @@ const Operacao = () => {
                     <CheckCircle className="w-8 h-8 text-green-400 mx-auto mb-2" />
                     <p className="text-green-200 font-semibold text-sm">Processo Aprovado e Auditado</p>
                   </div>
+                </div>
+              </div>
+
+              {/* Mobile - Carrossel horizontal */}
+              <div className="md:hidden mb-12">
+                <div className="flex overflow-x-auto gap-6 pb-6 px-4 snap-x snap-mandatory scrollbar-hide">
+                  {/* Etapa 1 Mobile */}
+                  <div className="flex-none w-80 snap-start">
+                    <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-2 border-orange-500/30 rounded-3xl p-6 text-center h-full">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-black text-2xl mb-6 mx-auto">
+                        1
+                      </div>
+                      <h3 className="text-xl font-bold mb-4 text-white">Operação de Crédito</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                        Operação de crédito acima de 2 milhões com programação de entrega mensal para uso de construção e comerciais industriais rurais.
+                      </p>
+                      <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-400/30 rounded-lg p-3">
+                        <Building2 className="w-6 h-6 text-yellow-400 mx-auto mb-2" />
+                        <p className="text-yellow-200 font-semibold text-xs">Crédito Acima de R$ 2 Milhões</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Etapa 2 Mobile */}
+                  <div className="flex-none w-80 snap-start">
+                    <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-2 border-blue-500/30 rounded-3xl p-6 text-center h-full">
+                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-black text-2xl mb-6 mx-auto">
+                        2
+                      </div>
+                      <h3 className="text-xl font-bold mb-4 text-white">Contemplação por Lance</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                        São contemplados 2 cotas por lance. Todo mês há um lance com um sorteio livre e um máximo por grupos, possibilitando as contemplações programadas.
+                      </p>
+                      <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-400/30 rounded-lg p-3">
+                        <Target className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                        <p className="text-blue-200 font-semibold text-xs">2 Cotas por Lance Mensal</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Etapa 3 Mobile */}
+                  <div className="flex-none w-80 snap-start">
+                    <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-500/30 rounded-3xl p-6 text-center h-full">
+                      <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-black text-2xl mb-6 mx-auto">
+                        3
+                      </div>
+                      <h3 className="text-xl font-bold mb-4 text-white">Aprovação da Empresa</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                        A operação passa por uma aprovação da empresa estando todos cientes do processo a ser executado para que o negócio seja fechado.
+                      </p>
+                      <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 rounded-lg p-3">
+                        <CheckCircle className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                        <p className="text-green-200 font-semibold text-xs">Processo Aprovado e Auditado</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Indicador de scroll */}
+                <div className="flex justify-center mt-4">
+                  <p className="text-gray-400 text-sm">← Deslize para ver todas as etapas →</p>
                 </div>
               </div>
             </div>
