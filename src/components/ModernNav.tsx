@@ -14,6 +14,7 @@ const ModernNav: React.FC = () => {
   const location = useLocation();
   const [activeButton, setActiveButton] = useState<string>('');
   const [isVisible, setIsVisible] = useState<boolean>(true);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const lastScrollY = useRef<number>(0);
 
   const buttons: NavigationButton[] = useMemo(() => [
@@ -34,8 +35,17 @@ const ModernNav: React.FC = () => {
     }
   ], []);
 
+  // Garantir que o componente seja montado corretamente
+  useEffect(() => {
+    setIsMounted(true);
+    // Forçar visibilidade inicial para evitar problemas no mobile
+    setIsVisible(true);
+  }, []);
+
   // Controle de scroll para mostrar/esconder navbar
   useEffect(() => {
+    if (!isMounted) return;
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -67,7 +77,7 @@ const ModernNav: React.FC = () => {
 
     window.addEventListener('scroll', throttledScroll, { passive: true });
     return () => window.removeEventListener('scroll', throttledScroll);
-  }, []);
+  }, [isMounted]);
 
   // Determinar botão ativo baseado na rota atual
   useEffect(() => {
@@ -85,10 +95,15 @@ const ModernNav: React.FC = () => {
     navigate(button.route);
   };
 
+  // Não renderizar até estar montado para evitar problemas de hidratação
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <motion.nav
       className="modern-nav"
-      initial={{ y: -20, opacity: 0 }}
+      initial={{ y: 0, opacity: 1 }}
       animate={{ 
         y: isVisible ? 0 : -100, 
         opacity: isVisible ? 1 : 0 

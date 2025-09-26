@@ -36,7 +36,7 @@ const Index = () => {
     <PageTransition>
       <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
         {/* MetaBalls Background Animation */}
-        <div className="fixed inset-0 w-full h-full pointer-events-none">
+        <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
           <MetaBalls
             color="#f59e0b"
             cursorBallColor="#fb923c"
