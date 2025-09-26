@@ -32,7 +32,8 @@ const WhatYouWillLearn = () => {
         </h2>
       </div>
       
-      <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+      {/* Desktop - Grid normal */}
+      <div className="hidden lg:grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
         {learningPoints.map((point, index) => (
           <div key={index} className="bg-gradient-card border border-border rounded-2xl p-4 sm:p-6 hover:scale-105 transition-transform duration-200">
             <div className="flex items-start gap-3 sm:gap-4">
@@ -46,6 +47,27 @@ const WhatYouWillLearn = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Mobile e Tablet - Carrossel horizontal */}
+      <div className="lg:hidden">
+        <div className="flex overflow-x-auto gap-4 pb-6 px-2 snap-x snap-mandatory scrollbar-hide">
+          {learningPoints.map((point, index) => (
+            <div key={index} className="flex-none w-72 sm:w-80 snap-start">
+              <div className="bg-gradient-card border border-border rounded-2xl p-4 sm:p-6 hover:scale-105 transition-transform duration-200 h-full">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="bg-gradient-gold text-black font-bold rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-lg sm:text-xl shrink-0">
+                    {point.number}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 leading-tight">{point.title}</h3>
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{point.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
