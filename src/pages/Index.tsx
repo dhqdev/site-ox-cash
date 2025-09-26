@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import Logo from "@/components/Logo";
 import CompanyInfo from "@/components/CompanyInfo";
 import WhatYouWillLearn from "@/components/WhatYouWillLearn";
@@ -32,22 +33,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
-      {/* MetaBalls Background Animation */}
-      <div className="fixed inset-0 w-full h-full pointer-events-none">
-        <MetaBalls
-          color="#f59e0b"
-          cursorBallColor="#fb923c"
-          cursorBallSize={0.2}
-          ballCount={50}
-          animationSize={150}
-          enableMouseInteraction={true}
-          enableTransparency={true}
-          hoverSmoothness={0.01}
-          clumpFactor={5.0}
-          speed={0.03}
-        />
-      </div>
+    <PageTransition>
+      <div className="min-h-screen bg-gradient-hero relative overflow-hidden">
+        {/* MetaBalls Background Animation */}
+        <div className="fixed inset-0 w-full h-full pointer-events-none">
+          <MetaBalls
+            color="#f59e0b"
+            cursorBallColor="#fb923c"
+            cursorBallSize={0.2}
+            ballCount={50}
+            animationSize={150}
+            enableMouseInteraction={true}
+            enableTransparency={true}
+            hoverSmoothness={0.01}
+            clumpFactor={5.0}
+            speed={0.03}
+          />
+        </div>
       
       {/* Content with relative positioning to stay above MetaBalls */}
       <div className="relative z-10">
@@ -147,7 +149,8 @@ const Index = () => {
         {/* WhatsApp flutuante */}
         <WhatsAppFloat />
       </div>
-    </div>
+      </div>
+    </PageTransition>
   );
 };
 

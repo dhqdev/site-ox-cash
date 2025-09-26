@@ -1,9 +1,9 @@
-import CardNav from "./CardNav";
+import ModernNav from "./ModernNav";
 
 const Header = () => {
   return (
     <div className="relative">
-      <CardNav />
+      <ModernNav />
     </div>
   );
 };

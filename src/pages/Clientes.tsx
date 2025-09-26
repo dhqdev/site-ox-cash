@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import PageTransition from "@/components/PageTransition";
 import { Button } from "@/components/ui/button";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import CircularGallery from "@/components/CircularGallery";
@@ -125,7 +126,8 @@ const Clientes = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <PageTransition>
+      <div className="min-h-screen bg-gradient-hero">
       <Header />
       
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 px-4">
@@ -256,6 +258,7 @@ const Clientes = () => {
       {/* WhatsApp flutuante */}
       <WhatsAppFloat />
     </div>
+    </PageTransition>
   );
 };
 

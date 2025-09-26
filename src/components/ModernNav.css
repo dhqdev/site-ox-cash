@@ -1,0 +1,101 @@
+/* ModernNav.css - Versão Apenas Botões Flutuantes */
+.modern-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  /* Removido: background e backdrop-filter para eliminar a "barreira" */
+}
+
+.modern-nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-button {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  color: #cbd5e1;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  outline: none;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  color: #f59e0b;
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(249, 115, 22, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button.active {
+  color: #f59e0b;
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(249, 115, 22, 0.6);
+  font-weight: 600;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.2);
+}
+
+.nav-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #f59e0b;
+  border-radius: 50%;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile responsivo */
+@media (max-width: 768px) {
+  .modern-nav {
+    padding: 0.75rem 0;
+  }
+  
+  .nav-buttons-container {
+    gap: 1rem;
+  }
+  
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-buttons-container {
+    gap: 0.5rem;
+  }
+  
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
