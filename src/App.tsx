@@ -9,7 +9,6 @@ import Operacao from "./pages/Operacao";
 import CotasContempladas from "./pages/CotasContempladas";
 import Clientes from "./pages/Clientes";
 import NotFound from "./pages/NotFound";
-import DraggableMascot from "./components/DraggableMascot";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +35,6 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AnimatedRoutes />
-        <DraggableMascot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
