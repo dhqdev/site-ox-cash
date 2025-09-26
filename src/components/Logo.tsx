@@ -26,7 +26,7 @@ const Logo = () => {
           
           <div className="space-y-4">
             <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white/95 leading-tight">
-              + que <span className="text-gradient-gold font-bold">negócio</span> e <span className="text-gradient-gold font-bold">investimento</span>
+              + Que <span className="text-gradient-gold font-bold">negócio</span> e <span className="text-gradient-gold font-bold">investimento</span>
             </p>
             
             {/* Badge BCI melhorado */}
