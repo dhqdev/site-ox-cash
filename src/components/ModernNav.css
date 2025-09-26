@@ -97,11 +97,15 @@
 
 @media (max-width: 480px) {
   .nav-buttons-container {
-    gap: 0.5rem;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .nav-button {
-    font-size: 0.85rem;
-    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+    flex: 0 1 auto;
+    min-width: fit-content;
   }
 }

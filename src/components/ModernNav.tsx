@@ -24,6 +24,11 @@ const ModernNav: React.FC = () => {
       route: '/'
     },
     {
+      id: 'operacao',
+      label: 'Operação',
+      route: '/operacao'
+    },
+    {
       id: 'clientes',
       label: 'Clientes',
       route: '/clientes'
