@@ -180,11 +180,6 @@ const Operacao = () => {
                     </div>
                   </div>
                 </div>
-                
-                {/* Indicador de scroll */}
-                <div className="flex justify-center mt-4">
-                  <p className="text-gray-400 text-sm">← Deslize para ver todas as etapas →</p>
-                </div>
               </div>
             </div>
 
